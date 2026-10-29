@@ -105,7 +105,7 @@
   .impact-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:27px 0 22px}
   .impact-stats div{background:rgba(255,255,255,.7);border-radius:14px;padding:13px 11px}
   .impact-stats b{display:block;font-size:25px;letter-spacing:-.06em}.impact-stats span{font-size:10px;color:var(--muted);font-weight:700}
-  .profile-bottom{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;color:var(--green-dark);font-size:11px;font-weight:750;border-top:1px solid rgba(25,45,39,.12);padding-top:14px}
+  .profile-bottom{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;color:var(--green-dark);font-size:11px;font-weight:750;border-top:1px solid rgba(25,45,39,.12);padding-top:14px}.profile-privacy{font-size:10px;color:var(--muted);margin-top:12px}
   .community-icon,.leaderboard-icon{margin-left:auto;font-size:25px}
   .community-card>p{font-size:13px;color:var(--muted);margin:9px 0 13px}
   .story-preview{display:flex;align-items:center;gap:10px;padding:11px 0;border-top:1px solid var(--line)}
@@ -155,7 +155,7 @@
     <div>
       <span class="eyebrow"><i aria-hidden="true"></i> A neighbor-helping-neighbor idea</span>
       <h1>Make generosity<br><span class="highlight">impossible to miss.</span></h1>
-      <p class="hero-copy">A place for millionaires, billionaires, and everyday givers to pay real bills directly—and show what that generosity adds up to. Every bill cleared, every dollar given, every story shared (with permission) becomes part of a public impact profile.</p>
+      <p class="hero-copy">A place for millionaires, billionaires, and everyday givers to pay real bills directly—and show what that generosity adds up to. The vision includes public impact profiles, stories shared by choice, and giving circles that bring people together.</p>
       <div class="hero-actions">
         <a class="btn" href="#join" data-lane="help">I need help with a bill <span aria-hidden="true">💛</span></a>
         <a class="btn secondary" href="#join" data-lane="donor">I want to give back <span aria-hidden="true">✋</span></a>
@@ -181,7 +181,7 @@
     <div class="how-grid">
       <article class="step"><span class="step-num">01</span><div class="emoji" aria-hidden="true">🧾</div><h3>A real bill gets verified</h3><p>With the bill owner’s permission, a bill would be checked and private details hidden before it appears.</p></article>
       <article class="step"><span class="step-num">02</span><div class="emoji" aria-hidden="true">🫶</div><h3>A giver pays it directly</h3><p>People could choose a bill, join a giving circle, or let a “surprise me” option find one within their budget.</p></article>
-      <article class="step"><span class="step-num">03</span><div class="emoji" aria-hidden="true">✅</div><h3>The impact gets counted</h3><p>Once payment is confirmed, the giver’s profile can show bills cleared, dollars given, and stories shared—with permission.</p></article>
+      <article class="step"><span class="step-num">03</span><div class="emoji" aria-hidden="true">✅</div><h3>The impact gets counted</h3><p>Confirmed payments add to a giver’s public impact profile. Recipients decide whether they want to share their story, and givers choose how they appear.</p></article>
     </div>
   </section>
 
@@ -192,12 +192,14 @@
         <div class="profile-top"><div class="avatar">J</div><div><span class="profile-label">Sample giver profile</span><h3>Jordan R. <span class="sparkle">✦</span></h3><p>Giving where it matters, one bill at a time.</p></div><span class="follow-pill">＋ Follow</span></div>
         <div class="impact-stats"><div><b>18</b><span>bills cleared</span></div><div><b>$4,260</b><span>given directly</span></div><div><b>12</b><span>stories supported</span></div></div>
         <div class="profile-bottom"><span>🏅 Community builder</span><span>💚 84 people inspired</span></div>
+        <p class="profile-privacy">Public name, total giving, and visibility settings would be up to the giver.</p>
       </article>
       <article class="community-card">
         <div class="community-head"><div><span class="profile-label">The giving community</span><h3>Good travels.</h3></div><span class="community-icon">💬</span></div>
         <p>Connect around the impact: celebrate a bill cleared, share a recipient story with permission, or inspire someone else to join in.</p>
         <div class="story-preview"><span class="story-icon">📖</span><div><b>Stories, with dignity</b><small>People can choose to share what a paid bill meant to them.</small></div><span aria-hidden="true">→</span></div>
         <div class="story-preview"><span class="story-icon">🤝</span><div><b>Give together</b><small>Givers can connect, compare impact, and build giving circles.</small></div><span aria-hidden="true">→</span></div>
+        <div class="story-preview"><span class="story-icon">📤</span><div><b>Share your impact</b><small>Post verified totals without exposing a recipient’s private details.</small></div><span aria-hidden="true">→</span></div>
       </article>
       <article class="leaderboard-card">
         <div class="leaderboard-head"><div><span class="profile-label">Illustrative leaderboard</span><h3>Givers who show up</h3></div><span class="leaderboard-icon">🏆</span></div>
@@ -254,8 +256,14 @@
           <label class="field-label" for="amountRange">About how much is it?</label><select id="amountRange" name="amountRange"><option value="">Choose a range (optional)</option><option>Under $100</option><option>$100 to $250</option><option>$250 to $500</option><option>$500 to $1,000</option><option>Over $1,000</option></select>
         </div>
         <div id="donorFields" hidden>
-          <label class="field-label" for="budgetRange">What kind of giving sounds right?</label><select id="budgetRange" name="budgetRange"><option value="">Choose one (optional)</option><option>One bill, under $100</option><option>One bill, $100 to $250</option><option>A few bills a month</option><option>$500+ a month</option><option>A larger pool for my business or audience</option></select>
-          <div class="checks"><label><input type="checkbox" name="interests" value="random"> I’m interested in giving automatically within my budget</label><label><input type="checkbox" name="interests" value="leaderboard"> I want a public profile showing my total impact</label></div>
+          <label class="field-label" for="budgetRange">What kind of giving sounds right?</label><select id="budgetRange" name="budgetRange"><option value="">Choose one (optional)</option><option>One bill, under $100</option><option>One bill, $100 to $250</option><option>A few bills a month</option><option>$500+ a month</option><option>A larger pool for my business or audience</option><option>Join or start a giving circle</option></select>
+          <div class="checks"><p style="font-size:12px;font-weight:800;color:var(--ink);margin-bottom:8px">Which features interest you? <span style="font-weight:500;color:var(--muted)">(choose any)</span></p>
+            <label><input type="checkbox" name="interests" value="random"> Match me with a verified bill within my budget</label>
+            <label><input type="checkbox" name="interests" value="leaderboard"> A public profile with my bills-cleared and total-given stats</label>
+            <label><input type="checkbox" name="interests" value="stories"> Recipient stories and updates, shared by choice</label>
+            <label><input type="checkbox" name="interests" value="circles"> Giving circles and community campaigns</label>
+            <label><input type="checkbox" name="interests" value="sharecard"> Shareable summaries of my confirmed impact</label>
+          </div>
         </div>
         <div class="checks"><label><input type="checkbox" id="consent" required> Email me about the idea, launch, and early access. No spam, and no selling my information.</label></div>
         <button type="submit" class="btn submit" id="submitBtn">Save me a spot <span aria-hidden="true">→</span></button>
@@ -272,7 +280,7 @@
       <details><summary>Can I upload a bill or donate now?</summary><p>No. This is an early concept page. Please don’t send bills, account numbers, payment details, or money. We’ll explain the process if bill submissions or payments open in the future.</p></details>
       <details><summary>How would a bill get paid?</summary><p>The idea is to verify a bill, protect private details, and send any payment directly to the biller. Those steps still need to be built and tested before anyone can use the service.</p></details>
       <details><summary>Would a payment be tax deductible?</summary><p>We haven’t established a final legal or tax structure. Don’t assume payments would be tax deductible. We’ll make the terms clear before accepting any payment.</p></details>
-      <details><summary>Can givers get public recognition?</summary><p>That’s a core part of the idea. Giver profiles could show how many bills were paid, the total amount given, and stories or community impact—always based on confirmed payments. Givers could also follow one another, share updates, and build giving circles.</p></details>
+      <details><summary>Can givers get public recognition?</summary><p>That’s a core part of the idea. Profiles could show bills paid and total dollars given, with figures tied to confirmed payments. Givers could choose a public name or anonymity, share impact summaries, follow one another, and build giving circles.</p></details>
       <details><summary>How will recipient stories be handled?</summary><p>Stories should be shared only when the person chooses to share them. The idea is to celebrate what generosity made possible while keeping people’s privacy and dignity at the center.</p></details>
     </div>
   </section>
