@@ -101,7 +101,10 @@
   .profile-top h3,.community-head h3,.leaderboard-head h3{font-size:18px;letter-spacing:-.03em;margin:2px 0}
   .profile-top p{color:var(--muted);font-size:12px}
   .sparkle{color:#d09400}
-  .follow-pill{margin-left:auto;border-radius:999px;background:white;padding:7px 11px;color:var(--green);font-size:11px;font-weight:800;white-space:nowrap}
+  .follow-pill{margin-left:auto;border:0;border-radius:999px;background:white;padding:7px 11px;color:var(--green);font:inherit;font-size:11px;font-weight:800;white-space:nowrap;cursor:pointer;transition:background .16s,transform .16s}
+  .follow-pill:hover{background:#f8ffec;transform:translateY(-1px)}
+  .follow-pill:focus-visible{outline:3px solid #79a98d;outline-offset:2px}
+  .follow-feedback{min-height:17px;margin-top:8px;color:var(--green-dark);font-size:10px;font-weight:700}
   .impact-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:27px 0 22px}
   .impact-stats div{background:rgba(255,255,255,.7);border-radius:14px;padding:13px 11px}
   .impact-stats b{display:block;font-size:25px;letter-spacing:-.06em}.impact-stats span{font-size:10px;color:var(--muted);font-weight:700}
@@ -164,7 +167,7 @@
   .rewards-head .kicker{color:var(--lime)}
   .rewards-head h2{font-size:clamp(30px,4vw,42px);line-height:1.05;letter-spacing:-.05em;margin:9px 0 12px}
   .rewards-head p{color:#d1e5d9;font-size:15px}
-  .rewards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;position:relative;z-index:1}
+  .rewards-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;position:relative;z-index:1}
   .reward-card{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.15);border-radius:17px;padding:18px}
   .reward-card .reward-icon{font-size:24px}
   .reward-card h3{font-size:15px;margin:10px 0 6px}
@@ -249,10 +252,10 @@
     <div class="section-head"><span class="kicker">Give back. Get recognized.</span><h2 class="section-title">Let generosity leave a trail.</h2><p>We want giving to be more than a quiet transaction. Profiles can make each person’s contribution visible and give the community a way to celebrate, connect, and inspire more good.</p></div>
     <div class="impact-grid">
       <article class="impact-profile">
-        <div class="profile-top"><div class="avatar">J</div><div><span class="profile-label">Sample giver profile</span><h3>Jordan R. <span class="sparkle">✦</span></h3><p>Giving where it matters, one bill at a time.</p></div><span class="follow-pill">＋ Follow</span></div>
+        <div class="profile-top"><div class="avatar">J</div><div><span class="profile-label">Sample giver profile</span><h3>Jordan R. <span class="sparkle">✦</span></h3><p>Giving where it matters, one bill at a time.</p></div><button class="follow-pill" id="sampleFollow" type="button" aria-pressed="false">＋ Follow</button></div>
         <div class="impact-stats"><div><b>18</b><span>bills supported</span></div><div><b>$4,260</b><span>sent to people</span></div><div><b>12</b><span>stories shared</span></div></div>
         <div class="profile-bottom"><span>🏅 Community builder</span><span>💚 84 people inspired</span></div>
-        <p class="profile-privacy">Public name, total giving, and visibility settings would be up to the giver.</p>
+        <p class="profile-privacy">Public name, total giving, and visibility settings would be up to the giver.</p><p class="follow-feedback" id="followFeedback" aria-live="polite"></p>
       </article>
       <article class="community-card">
         <div class="community-head"><div><span class="profile-label">The giving community</span><h3>Good travels.</h3></div><span class="community-icon">💬</span></div>
@@ -282,12 +285,13 @@
         <article class="reward-card"><span class="reward-icon" aria-hidden="true">📊</span><h3>Proof of your impact</h3><p>A dashboard for verified funds sent, bills recipients later confirm paid, and the people reached by your giving.</p></article>
         <article class="reward-card"><span class="reward-icon" aria-hidden="true">🏅</span><h3>Recognition on your terms</h3><p>Opt into a public giver profile, milestone badges, or a featured thank-you—or give quietly with a private profile.</p></article>
         <article class="reward-card"><span class="reward-icon" aria-hidden="true">🤝</span><h3>Bring your community</h3><p>Businesses and public figures could sponsor a bill category or local campaign, invite employees or followers, and share an impact recap.</p></article>
+        <article class="reward-card"><span class="reward-icon" aria-hidden="true">👥</span><h3>Build a following around giving</h3><p>People could follow a giver or a specific bill campaign, then opt in for updates when new verified requests are added or impact is confirmed. A growing community can make each campaign easier to discover.</p></article>
       </div>
       <div class="founding-offer">
         <div><b>Founding Giver / Community Partner</b><span>Proposed early-partner perks: custom giving page, campaign tools, and an impact report.</span></div>
         <a class="pill-link" href="#join" data-lane="partner">Join as a partner ↗</a>
       </div>
-      <p class="rewards-note">These are proposed benefits, not live services. Recognition is optional, and giving more would never move a bill ahead in line. No tax deduction is promised.</p>
+      <p class="rewards-note">These are proposed benefits, not live services. Followers choose whom and what to follow; follower counts and campaign reach are never guaranteed. Recognition is optional, and giving more would never move a bill ahead in line. No tax deduction is promised.</p>
     </div>
   </section>
 
@@ -404,6 +408,7 @@
             <label><input type="checkbox" name="interests" value="gratitude"> Optional public gratitude feeds for businesses I support</label>
             <label><input type="checkbox" name="interests" value="request-sharing"> Share tools that help my verified request reach more people</label>
             <label><input type="checkbox" name="interests" value="founding-partner"> Founding giver / business partner benefits and impact reports</label>
+            <label><input type="checkbox" name="interests" value="campaign-following"> Followers and opt-in updates for my giving profile or bill campaigns</label>
           </div>
         </div>
         <div class="checks"><label><input type="checkbox" id="consent" required> Email me about the idea, launch, and early access. No spam, and no selling my information.</label></div>
@@ -423,6 +428,7 @@
       <details><summary>How would the money reach someone?</summary><p>After a bill is reviewed and the recipient is verified, the concept is to send the approved funds to that person’s verified personal account. It would not have to go to the utility or other biller. A later update could distinguish money sent from a bill the recipient confirms they paid. No payments are available on this page.</p></details>
       <details><summary>Would a payment be tax deductible?</summary><p>We haven’t established a final legal or tax structure. Don’t assume payments would be tax deductible. We’ll make the terms clear before accepting any payment.</p></details>
       <details><summary>Can givers get public recognition?</summary><p>That’s a core part of the idea. Profiles could show funds sent and bills recipients later confirm as paid, with totals tied to verified transactions. Givers could choose a public name or anonymity, share impact summaries, follow one another, and build giving circles.</p></details>
+      <details><summary>Can people follow a giver or a bill campaign?</summary><p>That’s the idea. People could follow a giver’s public profile or a specific campaign and choose whether to receive updates about new verified requests, campaign progress, and confirmed impact. Following would not mean agreeing to donate, and follower growth would never be guaranteed.</p></details>
       <details><summary>Can sharing help more people see my request?</summary><p>That’s the concept. People could share a verified request link, helping more givers discover it and the recipient’s public profile. Recipients would choose what personal details to show. More sharing may increase potential visibility, but it cannot guarantee views, donations, or funding by a bill’s due date.</p></details>
       <details><summary>Can businesses choose whether to show gratitude posts?</summary><p>That’s the idea: each business could turn its public gratitude feed on or off. People could choose to post a thank-you when a business helped them, with moderation and privacy controls. The sample feed on this page is only an illustration; posting is not live.</p></details>
       <details><summary>How will recipient stories be handled?</summary><p>Stories should be shared only when the person chooses to share them. The idea is to celebrate what generosity made possible while keeping people’s privacy and dignity at the center.</p></details>
@@ -446,6 +452,13 @@
     var radio=form.querySelector('input[name="lane"][value="'+a.getAttribute('data-lane')+'"]');
     if(radio){radio.checked=true;laneChanged()}
   })});
+  var sampleFollow=document.getElementById('sampleFollow');
+  sampleFollow.addEventListener('click',function(){
+    var following=sampleFollow.getAttribute('aria-pressed')==='true';
+    sampleFollow.setAttribute('aria-pressed',String(!following));
+    sampleFollow.textContent=following?'＋ Follow':'✓ Following';
+    document.getElementById('followFeedback').textContent=following?'You unfollowed this sample giver.':'Preview: you would get opt-in updates on this giver’s campaigns and impact.';
+  });
   var requestShareUrl=window.location.origin+window.location.pathname+'#reach-demo';
   var requestShareText='Help this verified bill request reach more people through Good Bill.';
   document.getElementById('requestFacebook').href='https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(requestShareUrl);
