@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#f8f6ef">
 <title>Good Bill — Make generosity visible</title>
-<meta name="description" content="A giving community concept where people can support verified bills with funds sent to recipients, track total giving, share stories by choice, and connect around their impact.">
+<meta name="description" content="A giving community concept where people can support upcoming or past-due bills verified before funds are sent to recipients, track total giving, share stories by choice, and connect around their impact.">
 <style>
   :root{
     --ink:#192d27;--muted:#63716b;--green:#14664f;--green-dark:#104d3d;
@@ -155,7 +155,7 @@
     <div>
       <span class="eyebrow"><i aria-hidden="true"></i> A neighbor-helping-neighbor idea</span>
       <h1>Make generosity<br><span class="highlight">impossible to miss.</span></h1>
-      <p class="hero-copy">A place for millionaires, billionaires, and everyday givers to help people facing bills—and show what that generosity adds up to. The vision includes public impact profiles, stories shared by choice, and giving circles that bring people together.</p>
+      <p class="hero-copy">A place for millionaires, billionaires, and everyday givers to help people with bills coming due or already past due—and show what that generosity adds up to. The vision includes public impact profiles, stories shared by choice, and giving circles that bring people together.</p>
       <div class="hero-actions">
         <a class="btn" href="#join" data-lane="help">I need help with a bill <span aria-hidden="true">💛</span></a>
         <a class="btn secondary" href="#join" data-lane="donor">I want to give back <span aria-hidden="true">✋</span></a>
@@ -166,7 +166,7 @@
       <div class="art-blob"></div><div class="float star" aria-hidden="true">✦</div><div class="float coin" aria-hidden="true">🪙</div><div class="float heart" aria-hidden="true">♥</div>
       <article class="receipt">
         <div class="receipt-top"><span>Giving in action</span><span class="receipt-icon" aria-hidden="true">⚡</span></div>
-        <h2>Electric bill</h2><p class="receipt-sub">An example of what a future post could look like</p>
+        <h2>Electric bill</h2><p class="receipt-sub">Coming due in 5 days · example only</p>
         <div class="receipt-amount"><span>Amount due</span><strong>$86</strong></div>
         <div class="receipt-progress" aria-label="Illustrative example only"><span></span></div>
         <div class="receipt-foot"><span>Neighbors pitching in</span><span>Example only</span></div>
@@ -179,7 +179,7 @@
   <section class="wrap" id="how">
     <div class="section-head"><span class="kicker">Big impact, one bill at a time</span><h2 class="section-title">A clear path from giving to impact.</h2><p>Make a real difference, then let people see the good that came from it.</p></div>
     <div class="how-grid">
-      <article class="step"><span class="step-num">01</span><div class="emoji" aria-hidden="true">🧾</div><h3>A real bill gets verified</h3><p>With the bill owner’s permission, a bill would be checked and private details hidden before it appears.</p></article>
+      <article class="step"><span class="step-num">01</span><div class="emoji" aria-hidden="true">🧾</div><h3>The bill and due date get checked</h3><p>With the bill owner’s permission, an upcoming or past-due bill would be reviewed and private details hidden before it appears.</p></article>
       <article class="step"><span class="step-num">02</span><div class="emoji" aria-hidden="true">🫶</div><h3>A giver chooses to help</h3><p>People could choose a verified bill, join a giving circle, or be matched with one within their budget.</p></article>
       <article class="step"><span class="step-num">03</span><div class="emoji" aria-hidden="true">✅</div><h3>Funds reach the person</h3><p>After verification, the planned flow sends money to the recipient’s verified personal account. The impact record can distinguish funds sent from bills later confirmed paid.</p></article>
     </div>
@@ -222,7 +222,7 @@
       </div>
       <div><div class="preview-example" aria-live="polite">
         <div class="example-label"><span>Sample bill card</span><span>Illustration only</span></div>
-        <div class="example-bill"><div class="example-icon" aria-hidden="true">💧</div><div><strong>Water bill</strong><small>Shared with permission · account details hidden</small></div><span class="example-amount" id="sampleAmount">$60</span></div>
+        <div class="example-bill"><div class="example-icon" aria-hidden="true">💧</div><div><strong>Water bill</strong><small>Due in 5 days · account details hidden</small></div><span class="example-amount" id="sampleAmount">$60</span></div>
         <div class="example-bottom"><span id="sampleCaption">A small boost. Real relief.</span><b>Funds sent to recipient ✓</b></div>
       </div><p class="note">Mock example. No donations are being collected and no bill has been submitted.</p></div>
     </div>
@@ -252,7 +252,7 @@
           <label class="lane"><input type="radio" name="lane" value="curious"><span><b>I’m just curious</b><small>Keep me in the loop while you build.</small></span></label>
         </div>
         <div id="helpFields" hidden>
-          <label class="field-label" for="billType">What kind of bill would you want to cover?</label><select id="billType" name="billType"><option value="">Choose one (optional)</option><option>Electric / utility</option><option>Rent</option><option>Phone</option><option>Medical</option><option>Water / gas</option><option>Car payment or insurance</option><option>Other</option></select>
+          <label class="field-label" for="billType">What kind of bill would you want to cover?</label><select id="billType" name="billType"><option value="">Choose one (optional)</option><option>Electric / utility</option><option>Rent</option><option>Mortgage / house payment</option><option>Phone</option><option>Medical</option><option>Water / gas</option><option>Car payment or insurance</option><option>Other</option></select>
           <label class="field-label" for="amountRange">About how much is it?</label><select id="amountRange" name="amountRange"><option value="">Choose a range (optional)</option><option>Under $100</option><option>$100 to $250</option><option>$250 to $500</option><option>$500 to $1,000</option><option>Over $1,000</option></select>
         </div>
         <div id="donorFields" hidden>
@@ -278,6 +278,7 @@
     <div class="faq">
       <details><summary>When will it launch?</summary><p>There isn’t a launch date yet. We’re using this waitlist to see if people want the idea before building the full service. Joining means we can send you updates and early access details if we move forward.</p></details>
       <details><summary>Can I upload a bill or donate now?</summary><p>No. This is an early concept page. Please don’t send bills, account numbers, payment details, or money. We’ll explain the process if bill submissions or payments open in the future.</p></details>
+      <details><summary>Can I ask for help before a bill is overdue?</summary><p>Yes. The concept includes bills that are coming due as well as past-due bills. A request would show the due date so givers can understand the timing, but joining this waitlist does not guarantee that any bill will be funded before its due date.</p></details>
       <details><summary>How would the money reach someone?</summary><p>After a bill is reviewed and the recipient is verified, the concept is to send the approved funds to that person’s verified personal account. It would not have to go to the utility or other biller. A later update could distinguish money sent from a bill the recipient confirms they paid. No payments are available on this page.</p></details>
       <details><summary>Would a payment be tax deductible?</summary><p>We haven’t established a final legal or tax structure. Don’t assume payments would be tax deductible. We’ll make the terms clear before accepting any payment.</p></details>
       <details><summary>Can givers get public recognition?</summary><p>That’s a core part of the idea. Profiles could show funds sent and bills recipients later confirm as paid, with totals tied to verified transactions. Givers could choose a public name or anonymity, share impact summaries, follow one another, and build giving circles.</p></details>
