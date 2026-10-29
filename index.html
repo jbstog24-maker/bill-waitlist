@@ -133,6 +133,25 @@
   .msg{display:none;border-radius:13px;padding:14px;margin-top:17px;font-size:14px}.msg.ok{display:block;background:#e8f5eb;border:1px solid #a7d2b2;color:#145438}.msg.err{display:block;background:#fff0ec;border:1px solid #f2b4a5;color:#8b3525}
   .faq{max-width:790px;margin:0 auto}.faq details{background:var(--paper);border:1px solid var(--line);border-radius:15px;padding:17px 19px;margin-bottom:10px}
   .faq summary{list-style:none;cursor:pointer;font-weight:800;display:flex;justify-content:space-between;gap:15px;align-items:center}.faq summary::-webkit-details-marker{display:none}.faq summary:after{content:"+";font-size:21px;color:var(--green);transition:transform .2s}.faq details[open] summary:after{transform:rotate(45deg)}
+  .gratitude-section{padding-top:18px}
+  .gratitude-panel{display:grid;grid-template-columns:.9fr 1.1fr;gap:30px;align-items:center;background:#fff1d4;border:1px solid #f2dfb1;border-radius:28px;padding:clamp(24px,4vw,38px);overflow:hidden}
+  .gratitude-copy h2{font-size:clamp(30px,4vw,40px);line-height:1.05;letter-spacing:-.05em;margin:10px 0 12px}
+  .gratitude-copy p{color:#6e6654;font-size:15px;max-width:420px}
+  .gratitude-chip{display:inline-flex;align-items:center;gap:7px;margin-top:18px;background:#fffefa;border:1px solid #f1e4c5;border-radius:999px;padding:8px 12px;font-size:11px;font-weight:800;color:#6f5b2d}
+  .feed-demo{background:var(--paper);border:1px solid rgba(25,45,39,.1);border-radius:20px;padding:20px;box-shadow:0 17px 42px rgba(59,53,30,.10)}
+  .feed-business{display:flex;align-items:center;gap:11px;padding-bottom:15px;border-bottom:1px solid var(--line)}
+  .business-avatar{width:42px;height:42px;display:grid;place-items:center;border-radius:14px;background:#dce9fb;font-size:22px}
+  .feed-business-copy{flex:1;min-width:0}.feed-business-copy b{display:block;font-size:13px}.feed-business-copy small{color:var(--muted);font-size:10px}
+  .feed-toggle{display:inline-flex;align-items:center;gap:7px;border:1px solid #cbd8ce;background:#f0f6ef;color:var(--green-dark);border-radius:999px;padding:7px 10px;font:inherit;font-size:10px;font-weight:850;cursor:pointer;white-space:nowrap}
+  .toggle-dot{width:9px;height:9px;border-radius:50%;background:#52a873;box-shadow:0 0 0 3px rgba(82,168,115,.14)}
+  .feed-toggle[aria-pressed="false"]{background:#f3f2ee;color:#69746d;border-color:#e2e0d7}.feed-toggle[aria-pressed="false"] .toggle-dot{background:#a2aaa4;box-shadow:none}
+  .feed-entry{display:flex;gap:10px;padding:14px 0 2px}.feed-heart{width:31px;height:31px;flex:none;display:grid;place-items:center;border-radius:11px;background:#ffe1d8;color:#d95742}
+  .feed-entry p{font-size:12px;line-height:1.5}.feed-entry b{font-size:12px}.feed-entry small{display:block;margin-top:4px;color:var(--muted);font-size:10px}
+  .feed-note{margin-top:12px;padding-top:11px;border-top:1px dashed #e5e1d6;color:var(--muted);font-size:10px;display:flex;justify-content:space-between;gap:10px}
+  .feed-off{display:none;border-radius:13px;margin-top:15px;padding:16px;background:#f4f3ef;color:var(--muted);font-size:12px;text-align:center}
+  .feed-demo.is-off .feed-entry,.feed-demo.is-off .feed-note{display:none}.feed-demo.is-off .feed-off{display:block}
+  @media(max-width:850px){.gratitude-panel{grid-template-columns:1fr}}
+  @media(max-width:600px){.gratitude-panel{padding:23px 19px;border-radius:23px}.feed-demo{padding:16px}.feed-toggle{font-size:9px;padding:7px 8px}}
   .faq details p{margin-top:10px;color:var(--muted);font-size:14px;max-width:680px}
   footer{background:#edf0e8;padding:30px 0 35px;color:var(--muted);font-size:12px}
   .footer-inner{display:flex;justify-content:space-between;gap:22px;align-items:center;flex-wrap:wrap}.footer-brand{font-weight:900;color:var(--ink);font-size:15px}.footer-small{max-width:640px}
@@ -146,7 +165,7 @@
 <header>
   <div class="wrap nav">
     <a class="brand" href="#top" aria-label="Good Bill home"><span class="brand-mark" aria-hidden="true">✳</span><span>Good Bill</span></a>
-    <nav class="navlinks" aria-label="Main navigation"><a href="#how">How it works</a><a href="#impact">Public impact</a><a href="#trust">Trust, first</a><a href="#faq">Questions</a></nav>
+    <nav class="navlinks" aria-label="Main navigation"><a href="#how">How it works</a><a href="#impact">Public impact</a><a href="#gratitude">Gratitude feeds</a><a href="#trust">Trust, first</a><a href="#faq">Questions</a></nav>
     <a class="pill-link" href="#join">Get early access <span aria-hidden="true">↗</span></a>
   </div>
 </header>
@@ -211,6 +230,30 @@
     </div>
   </section>
 
+  <section class="wrap gratitude-section" id="gratitude" aria-labelledby="gratitude-title">
+    <div class="gratitude-panel">
+      <div class="gratitude-copy">
+        <span class="kicker">A little love goes a long way</span>
+        <h2 id="gratitude-title">Let people say thanks—on their terms.</h2>
+        <p>Each business could choose whether its public gratitude feed is on or off. When it’s on, people can share a thank-you for the help they received, with privacy controls and moderation built in.</p>
+        <span class="gratitude-chip">💛 Optional for every business · easy to switch off</span>
+      </div>
+      <article class="feed-demo" id="gratitudeDemo" aria-label="Illustrative business gratitude feed">
+        <div class="feed-business">
+          <div class="business-avatar" aria-hidden="true">🏪</div>
+          <div class="feed-business-copy"><b>Neighborhood Motors</b><small>Example business profile · community supporter</small></div>
+          <button class="feed-toggle" id="feedToggle" type="button" aria-pressed="true" aria-controls="gratitudeEntries"><span class="toggle-dot" aria-hidden="true"></span><span id="feedToggleText">Feed on</span></button>
+        </div>
+        <div id="gratitudeEntries">
+          <div class="feed-entry"><span class="feed-heart" aria-hidden="true">♥</span><p><b>“Thank you for helping with my car payment. I can keep getting to work.”</b><small>Shared by a neighbor · posted with permission</small></p></div>
+          <div class="feed-entry"><span class="feed-heart" aria-hidden="true">♥</span><p><b>“Your kindness gave my family some breathing room this month.”</b><small>Shared by a neighbor · posted with permission</small></p></div>
+        </div>
+        <div class="feed-off" id="feedOffMessage" role="status">This business has turned its public gratitude feed off. Its profile and giving totals can still be shown.</div>
+        <div class="feed-note"><span>Illustrative messages · no live posts</span><span>Privacy + moderation controls</span></div>
+      </article>
+    </div>
+  </section>
+
   <section class="wrap preview-section" aria-labelledby="preview-title">
     <div class="preview-panel">
       <div><span class="kicker">A tiny preview</span><h2 id="preview-title">Your kind of helping.</h2><p>Pick a sample amount to see how a future bill card might feel. This is only an illustration—no live bills or payments yet.</p>
@@ -263,6 +306,7 @@
             <label><input type="checkbox" name="interests" value="stories"> Recipient stories and updates, shared by choice</label>
             <label><input type="checkbox" name="interests" value="circles"> Giving circles and community campaigns</label>
             <label><input type="checkbox" name="interests" value="sharecard"> Shareable summaries of my confirmed impact</label>
+            <label><input type="checkbox" name="interests" value="gratitude"> Optional public gratitude feeds for businesses I support</label>
           </div>
         </div>
         <div class="checks"><label><input type="checkbox" id="consent" required> Email me about the idea, launch, and early access. No spam, and no selling my information.</label></div>
@@ -282,6 +326,7 @@
       <details><summary>How would the money reach someone?</summary><p>After a bill is reviewed and the recipient is verified, the concept is to send the approved funds to that person’s verified personal account. It would not have to go to the utility or other biller. A later update could distinguish money sent from a bill the recipient confirms they paid. No payments are available on this page.</p></details>
       <details><summary>Would a payment be tax deductible?</summary><p>We haven’t established a final legal or tax structure. Don’t assume payments would be tax deductible. We’ll make the terms clear before accepting any payment.</p></details>
       <details><summary>Can givers get public recognition?</summary><p>That’s a core part of the idea. Profiles could show funds sent and bills recipients later confirm as paid, with totals tied to verified transactions. Givers could choose a public name or anonymity, share impact summaries, follow one another, and build giving circles.</p></details>
+      <details><summary>Can businesses choose whether to show gratitude posts?</summary><p>That’s the idea: each business could turn its public gratitude feed on or off. People could choose to post a thank-you when a business helped them, with moderation and privacy controls. The sample feed on this page is only an illustration; posting is not live.</p></details>
       <details><summary>How will recipient stories be handled?</summary><p>Stories should be shared only when the person chooses to share them. The idea is to celebrate what generosity made possible while keeping people’s privacy and dignity at the center.</p></details>
     </div>
   </section>
@@ -303,6 +348,15 @@
     var radio=form.querySelector('input[name="lane"][value="'+a.getAttribute('data-lane')+'"]');
     if(radio){radio.checked=true;laneChanged()}
   })});
+  var feedToggle=document.getElementById('feedToggle');
+  var feedDemo=document.getElementById('gratitudeDemo');
+  var feedToggleText=document.getElementById('feedToggleText');
+  feedToggle.addEventListener('click',function(){
+    var isOn=feedToggle.getAttribute('aria-pressed')==='true';
+    feedToggle.setAttribute('aria-pressed',String(!isOn));
+    feedToggleText.textContent=isOn?'Feed off':'Feed on';
+    feedDemo.classList.toggle('is-off',isOn);
+  });
   document.querySelectorAll('.amount-choice').forEach(function(button){button.addEventListener('click',function(){
     document.querySelectorAll('.amount-choice').forEach(function(b){b.setAttribute('aria-pressed','false')});
     button.setAttribute('aria-pressed','true');
