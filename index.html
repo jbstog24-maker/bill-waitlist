@@ -148,6 +148,11 @@
   .feed-entry{display:flex;gap:10px;padding:14px 0 2px}.feed-heart{width:31px;height:31px;flex:none;display:grid;place-items:center;border-radius:11px;background:#ffe1d8;color:#d95742}
   .feed-entry p{font-size:12px;line-height:1.5}.feed-entry b{font-size:12px}.feed-entry small{display:block;margin-top:4px;color:var(--muted);font-size:10px}
   .feed-note{margin-top:12px;padding-top:11px;border-top:1px dashed #e5e1d6;color:var(--muted);font-size:10px;display:flex;justify-content:space-between;gap:10px}
+  .feed-share{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:14px}
+  .feed-share-label{margin-right:auto;color:var(--muted);font-size:10px;font-weight:800}
+  .share-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:34px;border:1px solid var(--line);border-radius:999px;padding:7px 11px;background:#fff;color:var(--ink);font:inherit;font-size:10px;font-weight:800;text-decoration:none;cursor:pointer;transition:transform .16s,border-color .16s}
+  .share-btn:hover{transform:translateY(-1px);border-color:#aabcae}
+  .share-status{flex-basis:100%;min-height:15px;color:var(--green);font-size:10px}
   .feed-off{display:none;border-radius:13px;margin-top:15px;padding:16px;background:#f4f3ef;color:var(--muted);font-size:12px;text-align:center}
   .feed-demo.is-off .feed-entry,.feed-demo.is-off .feed-note{display:none}.feed-demo.is-off .feed-off{display:block}
   @media(max-width:850px){.gratitude-panel{grid-template-columns:1fr}}
@@ -250,6 +255,13 @@
         </div>
         <div class="feed-off" id="feedOffMessage" role="status">This business has turned its public gratitude feed off. Its profile and giving totals can still be shown.</div>
         <div class="feed-note"><span>Illustrative messages · no live posts</span><span>Privacy + moderation controls</span></div>
+        <div class="feed-share" aria-label="Share this example feed">
+          <span class="feed-share-label">Pass the good along</span>
+          <a class="share-btn" id="shareFacebook" href="#" target="_blank" rel="noopener noreferrer" aria-label="Share the example feed on Facebook">f&nbsp; Facebook</a>
+          <a class="share-btn" id="shareX" href="#" target="_blank" rel="noopener noreferrer" aria-label="Share the example feed on X">𝕏&nbsp; Share</a>
+          <button class="share-btn" id="copyFeedLink" type="button">🔗 Copy link</button>
+          <span class="share-status" id="shareStatus" role="status" aria-live="polite"></span>
+        </div>
       </article>
     </div>
   </section>
@@ -348,6 +360,15 @@
     var radio=form.querySelector('input[name="lane"][value="'+a.getAttribute('data-lane')+'"]');
     if(radio){radio.checked=true;laneChanged()}
   })});
+  var feedShareUrl=window.location.origin+window.location.pathname+'#gratitude';
+  var feedShareText='A little generosity goes a long way. See the Good Bill gratitude feed concept.';
+  document.getElementById('shareFacebook').href='https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(feedShareUrl);
+  document.getElementById('shareX').href='https://twitter.com/intent/tweet?url='+encodeURIComponent(feedShareUrl)+'&text='+encodeURIComponent(feedShareText);
+  document.getElementById('copyFeedLink').addEventListener('click',function(){
+    var status=document.getElementById('shareStatus');
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(feedShareUrl).then(function(){status.textContent='Link copied—share the good!'},function(){status.textContent='Copy unavailable. You can copy the page address from your browser.'})}
+    else{status.textContent='You can copy the page address from your browser.'}
+  });
   var feedToggle=document.getElementById('feedToggle');
   var feedDemo=document.getElementById('gratitudeDemo');
   var feedToggleText=document.getElementById('feedToggleText');
