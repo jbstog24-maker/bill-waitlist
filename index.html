@@ -157,6 +157,26 @@
   .feed-demo.is-off .feed-entry,.feed-demo.is-off .feed-note{display:none}.feed-demo.is-off .feed-off{display:block}
   @media(max-width:850px){.gratitude-panel{grid-template-columns:1fr}}
   @media(max-width:600px){.gratitude-panel{padding:23px 19px;border-radius:23px}.feed-demo{padding:16px}.feed-toggle{font-size:9px;padding:7px 8px}}
+  .reach-section{padding-top:20px}
+  .reach-panel{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center;background:#e8f1fb;border:1px solid #d5e2f2;border-radius:28px;padding:clamp(24px,4vw,38px)}
+  .reach-copy h2{font-size:clamp(30px,4vw,40px);line-height:1.05;letter-spacing:-.05em;margin:10px 0 12px}
+  .reach-copy p{color:#566779;font-size:15px;max-width:440px}
+  .reach-points{display:grid;gap:9px;margin-top:18px;color:#37586f;font-size:12px;font-weight:750}
+  .reach-points span{display:flex;gap:8px;align-items:center}
+  .request-demo{background:var(--paper);border:1px solid rgba(25,45,39,.1);border-radius:20px;padding:21px;box-shadow:0 17px 42px rgba(36,55,77,.1)}
+  .request-demo-top{display:flex;justify-content:space-between;gap:10px;align-items:center;color:var(--muted);font-size:10px;font-weight:850;text-transform:uppercase;letter-spacing:.06em}
+  .verified-tag{background:#e9f4df;color:var(--green-dark);border-radius:999px;padding:5px 9px;letter-spacing:0}
+  .request-person{display:flex;align-items:center;gap:11px;margin:17px 0 14px}
+  .request-avatar{width:42px;height:42px;display:grid;place-items:center;border-radius:14px;background:#ffe1d8;font-size:20px}
+  .request-person b{display:block;font-size:13px}.request-person small{font-size:10px;color:var(--muted)}
+  .request-summary{display:flex;justify-content:space-between;gap:10px;align-items:center;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:12px 0;font-size:12px}
+  .request-summary b{font-size:14px}.request-due{color:var(--muted);font-size:10px}
+  .request-reach{display:flex;align-items:center;gap:8px;margin:13px 0;color:#566779;font-size:10px}
+  .reach-dots{display:flex;align-items:center}.reach-dots i{width:21px;height:21px;margin-left:-4px;border:2px solid white;border-radius:50%;background:#c9ed85}.reach-dots i:first-child{margin-left:0;background:#ffd86f}.reach-dots i:nth-child(2){background:#ffb09e}.reach-dots i:nth-child(3){background:#c9d9f0}
+  .request-share-row{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}
+  .request-share-row .share-btn{font-size:10px}
+  .request-share-caption{font-size:10px;color:var(--muted);margin-top:10px;line-height:1.45}
+  @media(max-width:850px){.reach-panel{grid-template-columns:1fr}}
   .faq details p{margin-top:10px;color:var(--muted);font-size:14px;max-width:680px}
   footer{background:#edf0e8;padding:30px 0 35px;color:var(--muted);font-size:12px}
   .footer-inner{display:flex;justify-content:space-between;gap:22px;align-items:center;flex-wrap:wrap}.footer-brand{font-weight:900;color:var(--ink);font-size:15px}.footer-small{max-width:640px}
@@ -266,6 +286,33 @@
     </div>
   </section>
 
+  <section class="wrap reach-section" id="reach-demo" aria-labelledby="reach-title">
+    <div class="reach-panel">
+      <div class="reach-copy">
+        <span class="kicker">A request can travel</span>
+        <h2 id="reach-title">Help a bill get seen by more people.</h2>
+        <p>In a future version, someone with a verified request could share its link with friends or on social media. Each share can help more people discover the bill and the recipient’s public profile.</p>
+        <div class="reach-points">
+          <span>🔒 The recipient chooses what details appear</span>
+          <span>📣 More shares can mean more potential visibility</span>
+          <span>💛 A wider reach never guarantees funding</span>
+        </div>
+      </div>
+      <article class="request-demo" aria-label="Illustrative shareable bill request">
+        <div class="request-demo-top"><span>Sample request card</span><span class="verified-tag">✓ Bill verified</span></div>
+        <div class="request-person"><div class="request-avatar" aria-hidden="true">🚗</div><div><b>A neighbor</b><small>Public profile · identity shared by choice</small></div></div>
+        <div class="request-summary"><span>Upcoming car payment<br><small class="request-due">Due in 5 days · example only</small></span><b>$240 to go</b></div>
+        <div class="request-reach"><span class="reach-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>Neighbors helping this request travel</span></div>
+        <div class="request-share-row" aria-label="Share this sample request">
+          <a class="share-btn" id="requestFacebook" href="#" target="_blank" rel="noopener noreferrer">f&nbsp; Facebook</a>
+          <a class="share-btn" id="requestX" href="#" target="_blank" rel="noopener noreferrer">𝕏&nbsp; Share</a>
+          <button class="share-btn" id="copyRequestLink" type="button">🔗 Copy request link</button>
+          <span class="share-status" id="requestShareStatus" role="status" aria-live="polite"></span>
+        </div>
+        <p class="request-share-caption">Illustration only. Sharing can increase potential awareness; it doesn’t guarantee views, donations, or a bill being paid.</p>
+      </article>
+    </div>
+  </section>
   <section class="wrap preview-section" aria-labelledby="preview-title">
     <div class="preview-panel">
       <div><span class="kicker">A tiny preview</span><h2 id="preview-title">Your kind of helping.</h2><p>Pick a sample amount to see how a future bill card might feel. This is only an illustration—no live bills or payments yet.</p>
@@ -319,6 +366,7 @@
             <label><input type="checkbox" name="interests" value="circles"> Giving circles and community campaigns</label>
             <label><input type="checkbox" name="interests" value="sharecard"> Shareable summaries of my confirmed impact</label>
             <label><input type="checkbox" name="interests" value="gratitude"> Optional public gratitude feeds for businesses I support</label>
+            <label><input type="checkbox" name="interests" value="request-sharing"> Share tools that help my verified request reach more people</label>
           </div>
         </div>
         <div class="checks"><label><input type="checkbox" id="consent" required> Email me about the idea, launch, and early access. No spam, and no selling my information.</label></div>
@@ -338,6 +386,7 @@
       <details><summary>How would the money reach someone?</summary><p>After a bill is reviewed and the recipient is verified, the concept is to send the approved funds to that person’s verified personal account. It would not have to go to the utility or other biller. A later update could distinguish money sent from a bill the recipient confirms they paid. No payments are available on this page.</p></details>
       <details><summary>Would a payment be tax deductible?</summary><p>We haven’t established a final legal or tax structure. Don’t assume payments would be tax deductible. We’ll make the terms clear before accepting any payment.</p></details>
       <details><summary>Can givers get public recognition?</summary><p>That’s a core part of the idea. Profiles could show funds sent and bills recipients later confirm as paid, with totals tied to verified transactions. Givers could choose a public name or anonymity, share impact summaries, follow one another, and build giving circles.</p></details>
+      <details><summary>Can sharing help more people see my request?</summary><p>That’s the concept. People could share a verified request link, helping more givers discover it and the recipient’s public profile. Recipients would choose what personal details to show. More sharing may increase potential visibility, but it cannot guarantee views, donations, or funding by a bill’s due date.</p></details>
       <details><summary>Can businesses choose whether to show gratitude posts?</summary><p>That’s the idea: each business could turn its public gratitude feed on or off. People could choose to post a thank-you when a business helped them, with moderation and privacy controls. The sample feed on this page is only an illustration; posting is not live.</p></details>
       <details><summary>How will recipient stories be handled?</summary><p>Stories should be shared only when the person chooses to share them. The idea is to celebrate what generosity made possible while keeping people’s privacy and dignity at the center.</p></details>
     </div>
@@ -360,6 +409,15 @@
     var radio=form.querySelector('input[name="lane"][value="'+a.getAttribute('data-lane')+'"]');
     if(radio){radio.checked=true;laneChanged()}
   })});
+  var requestShareUrl=window.location.origin+window.location.pathname+'#reach-demo';
+  var requestShareText='Help this verified bill request reach more people through Good Bill.';
+  document.getElementById('requestFacebook').href='https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(requestShareUrl);
+  document.getElementById('requestX').href='https://twitter.com/intent/tweet?url='+encodeURIComponent(requestShareUrl)+'&text='+encodeURIComponent(requestShareText);
+  document.getElementById('copyRequestLink').addEventListener('click',function(){
+    var status=document.getElementById('requestShareStatus');
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(requestShareUrl).then(function(){status.textContent='Request link copied—help spread the word!'},function(){status.textContent='Copy unavailable. You can copy the page address from your browser.'})}
+    else{status.textContent='You can copy the page address from your browser.'}
+  });
   var feedShareUrl=window.location.origin+window.location.pathname+'#gratitude';
   var feedShareText='A little generosity goes a long way. See the Good Bill gratitude feed concept.';
   document.getElementById('shareFacebook').href='https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(feedShareUrl);
