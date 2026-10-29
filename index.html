@@ -172,6 +172,14 @@
   .reward-card .reward-icon{font-size:24px}
   .reward-card h3{font-size:15px;margin:10px 0 6px}
   .reward-card p{font-size:12px;color:#d1e5d9;line-height:1.5}
+  .campaign-preview{margin-top:14px;padding:20px;background:#fffefa;color:var(--ink);border-radius:18px;position:relative;z-index:1}
+  .campaign-preview h3{font-size:17px;letter-spacing:-.03em}
+  .campaign-preview>p{font-size:12px;color:var(--muted);margin:6px 0 14px;max-width:760px}
+  .campaign-options{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+  .campaign-option{border:1px solid var(--line);border-radius:12px;padding:10px 13px;background:#fff;color:var(--ink);font:inherit;font-size:12px;font-weight:800;cursor:pointer}
+  .campaign-option[aria-pressed="true"]{border-color:var(--green);background:#eff7ef;box-shadow:inset 0 0 0 1px var(--green);color:var(--green-dark)}
+  .campaign-result{border-radius:12px;padding:12px;background:#f3f5eb;color:var(--green-dark);font-size:12px;font-weight:750}
+  .campaign-rules-note{font-size:10px!important;color:var(--muted)!important;margin-top:10px!important}
   .founding-offer{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;margin-top:16px;padding:17px 18px;background:#d9f0e4;color:var(--ink);border-radius:16px;position:relative;z-index:1}
   .founding-offer b{display:block;font-size:14px}.founding-offer span{font-size:11px;color:var(--muted)}
   .founding-offer .pill-link{white-space:nowrap;background:var(--green-dark)}
@@ -285,7 +293,17 @@
         <article class="reward-card"><span class="reward-icon" aria-hidden="true">📊</span><h3>Proof of your impact</h3><p>A dashboard for verified funds sent, bills recipients later confirm paid, and the people reached by your giving.</p></article>
         <article class="reward-card"><span class="reward-icon" aria-hidden="true">🏅</span><h3>Recognition on your terms</h3><p>Opt into a public giver profile, milestone badges, or a featured thank-you—or give quietly with a private profile.</p></article>
         <article class="reward-card"><span class="reward-icon" aria-hidden="true">🤝</span><h3>Bring your community</h3><p>Businesses and public figures could sponsor a bill category or local campaign, invite employees or followers, and share an impact recap.</p></article>
-        <article class="reward-card"><span class="reward-icon" aria-hidden="true">👥</span><h3>Follow first. Give when you’re ready.</h3><p>Follow a giver, business, or cause first. When they post a new verified bill campaign, opt in to updates, review the request, and choose whether to contribute. Following never sends money automatically; unfollow or mute anytime.</p></article>
+        <article class="reward-card"><span class="reward-icon" aria-hidden="true">🎁</span><h3>Turn followers into bill help</h3><p>A creator or business sets a bill-help amount and campaign rules. Followers submit verified bills for a chance to be selected at random; the creator can support one person or split the amount across several.</p></article>
+      </div>
+      <div class="campaign-preview" aria-label="Illustrative creator bill campaign">
+        <h3>Example: a creator launches a $600 bill-help campaign</h3>
+        <p>Followers who submit an eligible, verified bill request could be included in a random selection. The creator sets in advance how many people to help and the amount per selected request.</p>
+        <div class="campaign-options" role="group" aria-label="Choose how the sample campaign amount is split">
+          <button class="campaign-option" type="button" data-payout-count="1" aria-pressed="true">Help 1 follower</button>
+          <button class="campaign-option" type="button" data-payout-count="3" aria-pressed="false">Split across 3 followers</button>
+        </div>
+        <div class="campaign-result" id="campaignResult" aria-live="polite">One eligible bill request selected at random could receive up to $600 toward the recipient’s verified personal payment account.</div>
+        <p class="campaign-rules-note">Example only. Before any real campaign, participants would need clear eligibility, entry, selection, payout, and privacy rules. Random prize campaigns require legal review; no live campaigns or payments are offered here.</p>
       </div>
       <div class="founding-offer">
         <div><b>Founding Giver / Community Partner</b><span>Proposed early-partner perks: custom giving page, campaign tools, and an impact report.</span></div>
@@ -396,6 +414,7 @@
         <div id="helpFields" hidden>
           <label class="field-label" for="billType">What kind of bill would you want to cover?</label><select id="billType" name="billType"><option value="">Choose one (optional)</option><option>Electric / utility</option><option>Rent</option><option>Mortgage / house payment</option><option>Phone</option><option>Medical</option><option>Water / gas</option><option>Car payment or insurance</option><option>Other</option></select>
           <label class="field-label" for="amountRange">About how much is it?</label><select id="amountRange" name="amountRange"><option value="">Choose a range (optional)</option><option>Under $100</option><option>$100 to $250</option><option>$250 to $500</option><option>$500 to $1,000</option><option>Over $1,000</option></select>
+          <div class="checks"><label><input type="checkbox" name="interests" value="campaign-entry"> I’d want to follow a creator’s campaign and submit my verified bill for a chance at help</label></div>
         </div>
         <div id="donorFields" hidden>
           <label class="field-label" for="budgetRange">What kind of giving sounds right?</label><select id="budgetRange" name="budgetRange"><option value="">Choose one (optional)</option><option>One bill, under $100</option><option>One bill, $100 to $250</option><option>A few bills a month</option><option>$500+ a month</option><option>A larger pool for my business or audience</option><option>Join or start a giving circle</option></select>
@@ -409,6 +428,7 @@
             <label><input type="checkbox" name="interests" value="request-sharing"> Share tools that help my verified request reach more people</label>
             <label><input type="checkbox" name="interests" value="founding-partner"> Founding giver / business partner benefits and impact reports</label>
             <label><input type="checkbox" name="interests" value="campaign-following"> Followers and opt-in updates for my giving profile or bill campaigns</label>
+            <label><input type="checkbox" name="interests" value="creator-bill-campaign"> Launch a bill-help campaign with one payout or several random recipient payouts</label>
           </div>
         </div>
         <div class="checks"><label><input type="checkbox" id="consent" required> Email me about the idea, launch, and early access. No spam, and no selling my information.</label></div>
@@ -428,7 +448,7 @@
       <details><summary>How would the money reach someone?</summary><p>After a bill is reviewed and the recipient is verified, the concept is to send the approved funds to that person’s verified personal account. It would not have to go to the utility or other biller. A later update could distinguish money sent from a bill the recipient confirms they paid. No payments are available on this page.</p></details>
       <details><summary>Would a payment be tax deductible?</summary><p>We haven’t established a final legal or tax structure. Don’t assume payments would be tax deductible. We’ll make the terms clear before accepting any payment.</p></details>
       <details><summary>Can givers get public recognition?</summary><p>That’s a core part of the idea. Profiles could show funds sent and bills recipients later confirm as paid, with totals tied to verified transactions. Givers could choose a public name or anonymity, share impact summaries, follow one another, and build giving circles.</p></details>
-      <details><summary>How would following a giver or campaign work?</summary><p>Someone could follow a giver, business, or cause first, then opt in to updates when new verified bill campaigns are posted. They review each request and decide whether to contribute. Following never sends money automatically, and people can unfollow or mute updates anytime.</p></details>
+      <details><summary>How would a creator bill-help campaign work?</summary><p>A creator or business would announce the total amount, how many eligible bills they plan to help, deadlines, and selection method. Followers who submit a bill that passes verification could be included in a random selection. The creator could choose one recipient for the full amount or split it among several, with funds sent to selected recipients’ verified personal accounts. Clear campaign terms and legal review would be required before launch; this site does not run drawings or send payments.</p></details>
       <details><summary>Can sharing help more people see my request?</summary><p>That’s the concept. People could share a verified request link, helping more givers discover it and the recipient’s public profile. Recipients would choose what personal details to show. More sharing may increase potential visibility, but it cannot guarantee views, donations, or funding by a bill’s due date.</p></details>
       <details><summary>Can businesses choose whether to show gratitude posts?</summary><p>That’s the idea: each business could turn its public gratitude feed on or off. People could choose to post a thank-you when a business helped them, with moderation and privacy controls. The sample feed on this page is only an illustration; posting is not live.</p></details>
       <details><summary>How will recipient stories be handled?</summary><p>Stories should be shared only when the person chooses to share them. The idea is to celebrate what generosity made possible while keeping people’s privacy and dignity at the center.</p></details>
@@ -486,6 +506,12 @@
     feedToggleText.textContent=isOn?'Feed off':'Feed on';
     feedDemo.classList.toggle('is-off',isOn);
   });
+  document.querySelectorAll('.campaign-option').forEach(function(button){button.addEventListener('click',function(){
+    document.querySelectorAll('.campaign-option').forEach(function(b){b.setAttribute('aria-pressed','false')});
+    button.setAttribute('aria-pressed','true');
+    var count=Number(button.getAttribute('data-payout-count'));
+    document.getElementById('campaignResult').textContent=count===1?'One eligible bill request selected at random could receive up to $600 toward the recipient’s verified personal payment account.':'Three eligible bill requests selected at random could each receive up to $200 toward the recipients’ verified personal payment accounts.';
+  })});
   document.querySelectorAll('.amount-choice').forEach(function(button){button.addEventListener('click',function(){
     document.querySelectorAll('.amount-choice').forEach(function(b){b.setAttribute('aria-pressed','false')});
     button.setAttribute('aria-pressed','true');
