@@ -157,6 +157,22 @@
   .feed-demo.is-off .feed-entry,.feed-demo.is-off .feed-note{display:none}.feed-demo.is-off .feed-off{display:block}
   @media(max-width:850px){.gratitude-panel{grid-template-columns:1fr}}
   @media(max-width:600px){.gratitude-panel{padding:23px 19px;border-radius:23px}.feed-demo{padding:16px}.feed-toggle{font-size:9px;padding:7px 8px}}
+  .giver-rewards{padding-top:20px}
+  .rewards-panel{background:#203d33;color:#fff;border-radius:28px;padding:clamp(25px,4vw,40px);position:relative;overflow:hidden}
+  .rewards-panel:after{content:"";position:absolute;width:280px;height:280px;border-radius:50%;background:rgba(201,237,133,.09);right:-80px;top:-140px}
+  .rewards-head{max-width:680px;margin-bottom:24px;position:relative;z-index:1}
+  .rewards-head .kicker{color:var(--lime)}
+  .rewards-head h2{font-size:clamp(30px,4vw,42px);line-height:1.05;letter-spacing:-.05em;margin:9px 0 12px}
+  .rewards-head p{color:#d1e5d9;font-size:15px}
+  .rewards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;position:relative;z-index:1}
+  .reward-card{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.15);border-radius:17px;padding:18px}
+  .reward-card .reward-icon{font-size:24px}
+  .reward-card h3{font-size:15px;margin:10px 0 6px}
+  .reward-card p{font-size:12px;color:#d1e5d9;line-height:1.5}
+  .founding-offer{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;margin-top:16px;padding:17px 18px;background:#d9f0e4;color:var(--ink);border-radius:16px;position:relative;z-index:1}
+  .founding-offer b{display:block;font-size:14px}.founding-offer span{font-size:11px;color:var(--muted)}
+  .founding-offer .pill-link{white-space:nowrap;background:var(--green-dark)}
+  .rewards-note{font-size:10px!important;color:#b9cfc1!important;margin-top:12px;position:relative;z-index:1}
   .reach-section{padding-top:20px}
   .reach-panel{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center;background:#e8f1fb;border:1px solid #d5e2f2;border-radius:28px;padding:clamp(24px,4vw,38px)}
   .reach-copy h2{font-size:clamp(30px,4vw,40px);line-height:1.05;letter-spacing:-.05em;margin:10px 0 12px}
@@ -176,7 +192,7 @@
   .request-share-row{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}
   .request-share-row .share-btn{font-size:10px}
   .request-share-caption{font-size:10px;color:var(--muted);margin-top:10px;line-height:1.45}
-  @media(max-width:850px){.reach-panel{grid-template-columns:1fr}}
+  @media(max-width:850px){.reach-panel{grid-template-columns:1fr}.rewards-grid{grid-template-columns:1fr}}
   .faq details p{margin-top:10px;color:var(--muted);font-size:14px;max-width:680px}
   footer{background:#edf0e8;padding:30px 0 35px;color:var(--muted);font-size:12px}
   .footer-inner{display:flex;justify-content:space-between;gap:22px;align-items:center;flex-wrap:wrap}.footer-brand{font-weight:900;color:var(--ink);font-size:15px}.footer-small{max-width:640px}
@@ -190,7 +206,7 @@
 <header>
   <div class="wrap nav">
     <a class="brand" href="#top" aria-label="Good Bill home"><span class="brand-mark" aria-hidden="true">✳</span><span>Good Bill</span></a>
-    <nav class="navlinks" aria-label="Main navigation"><a href="#how">How it works</a><a href="#impact">Public impact</a><a href="#gratitude">Gratitude feeds</a><a href="#trust">Trust, first</a><a href="#faq">Questions</a></nav>
+    <nav class="navlinks" aria-label="Main navigation"><a href="#how">How it works</a><a href="#impact">Public impact</a><a href="#giver-benefits">Giver benefits</a><a href="#gratitude">Gratitude feeds</a><a href="#trust">Trust, first</a><a href="#faq">Questions</a></nav>
     <a class="pill-link" href="#join">Get early access <span aria-hidden="true">↗</span></a>
   </div>
 </header>
@@ -252,6 +268,26 @@
         <div class="giver-row"><span class="rank">03</span><span class="giver-avatar yellow">S</span><span class="giver-name"><b>Sam T.</b><small>17 bills supported</small></span><b class="giver-total">$3,980</b></div>
         <p class="mock-note">Mock names and numbers—just an example of the idea.</p>
       </article>
+    </div>
+  </section>
+
+  <section class="wrap giver-rewards" id="giver-benefits" aria-labelledby="rewards-title">
+    <div class="rewards-panel">
+      <div class="rewards-head">
+        <span class="kicker">For people and businesses who give</span>
+        <h2 id="rewards-title">Make generosity visible—and worth coming back for.</h2>
+        <p>Give people with resources a real way to see what their generosity does, bring others along, and earn recognition if they want it.</p>
+      </div>
+      <div class="rewards-grid">
+        <article class="reward-card"><span class="reward-icon" aria-hidden="true">📊</span><h3>Proof of your impact</h3><p>A dashboard for verified funds sent, bills recipients later confirm paid, and the people reached by your giving.</p></article>
+        <article class="reward-card"><span class="reward-icon" aria-hidden="true">🏅</span><h3>Recognition on your terms</h3><p>Opt into a public giver profile, milestone badges, or a featured thank-you—or give quietly with a private profile.</p></article>
+        <article class="reward-card"><span class="reward-icon" aria-hidden="true">🤝</span><h3>Bring your community</h3><p>Businesses and public figures could sponsor a bill category or local campaign, invite employees or followers, and share an impact recap.</p></article>
+      </div>
+      <div class="founding-offer">
+        <div><b>Founding Giver / Community Partner</b><span>Proposed early-partner perks: custom giving page, campaign tools, and an impact report.</span></div>
+        <a class="pill-link" href="#join" data-lane="partner">Join as a partner ↗</a>
+      </div>
+      <p class="rewards-note">These are proposed benefits, not live services. Recognition is optional, and giving more would never move a bill ahead in line. No tax deduction is promised.</p>
     </div>
   </section>
 
@@ -367,6 +403,7 @@
             <label><input type="checkbox" name="interests" value="sharecard"> Shareable summaries of my confirmed impact</label>
             <label><input type="checkbox" name="interests" value="gratitude"> Optional public gratitude feeds for businesses I support</label>
             <label><input type="checkbox" name="interests" value="request-sharing"> Share tools that help my verified request reach more people</label>
+            <label><input type="checkbox" name="interests" value="founding-partner"> Founding giver / business partner benefits and impact reports</label>
           </div>
         </div>
         <div class="checks"><label><input type="checkbox" id="consent" required> Email me about the idea, launch, and early access. No spam, and no selling my information.</label></div>
