@@ -1,352 +1,275 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Join the Waitlist - Get a Bill Paid, or Pay One</title>
-<meta name="description" content="Everyday people upload a verified bill. Generous donors pay it directly to the biller and get public credit for it. Join the waitlist.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f8f6ef">
+<title>Good Bill — A little help goes a long way</title>
+<meta name="description" content="A neighbor-helping-neighbor idea: verified bills, paid directly to the biller. Join the early list to get updates and first access.">
 <style>
   :root{
-    --ink:#14231d; --muted:#4c5d55; --green:#0e6b4f; --green-dark:#0a4f3a;
-    --amber:#f2b13c; --cream:#faf6ee; --card:#ffffff; --line:#e3ddd0;
+    --ink:#192d27;--muted:#63716b;--green:#14664f;--green-dark:#104d3d;
+    --mint:#d9f0e4;--lime:#c9ed85;--coral:#ff876d;--sun:#ffd86f;
+    --cream:#f8f6ef;--paper:#fffefa;--line:#e7e3d8;--blue:#dce9fb;
+    --shadow:0 18px 50px rgba(27,57,46,.10)
   }
-  *{box-sizing:border-box; margin:0; padding:0;}
-  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; background:var(--cream); color:var(--ink); line-height:1.55;}
-  .wrap{max-width:1060px; margin:0 auto; padding:0 20px;}
-  header{padding:18px 0; border-bottom:1px solid var(--line); background:var(--cream); position:sticky; top:0; z-index:10;}
-  .nav{display:flex; justify-content:space-between; align-items:center;}
-  .wordmark{font-weight:800; letter-spacing:.14em; font-size:14px; text-transform:uppercase;}
-  .wordmark span{color:var(--green);}
-  .nav a.cta{background:var(--green); color:#fff; padding:9px 18px; border-radius:999px; text-decoration:none; font-weight:600; font-size:14px;}
-  .hero{padding:64px 0 48px; text-align:center;}
-  .hero h1{font-size:clamp(34px,5.4vw,56px); line-height:1.12; font-weight:850; max-width:820px; margin:0 auto;}
-  .hero h1 em{font-style:normal; color:var(--green); border-bottom:6px solid var(--amber);}
-  .hero p.sub{font-size:19px; color:var(--muted); max-width:640px; margin:22px auto 30px;}
-  .hero .btns{display:flex; gap:14px; justify-content:center; flex-wrap:wrap;}
-  .btn{display:inline-block; padding:15px 28px; border-radius:999px; font-weight:700; font-size:16px; text-decoration:none; cursor:pointer; border:2px solid var(--green);}
-  .btn.primary{background:var(--green); color:#fff;}
-  .btn.primary:hover{background:var(--green-dark);}
-  .btn.ghost{background:transparent; color:var(--green);}
-  .fineprint{margin-top:16px; font-size:13px; color:var(--muted);}
-  section{padding:48px 0;}
-  h2{font-size:30px; margin-bottom:10px; text-align:center;}
-  .lede{text-align:center; color:var(--muted); max-width:620px; margin:0 auto 32px;}
-  .grid3{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:18px;}
-  .card{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:26px;}
-  .card .num{width:38px; height:38px; border-radius:50%; background:var(--amber); color:#3a2a05; font-weight:800; display:flex; align-items:center; justify-content:center; margin-bottom:14px;}
-  .card h3{font-size:18px; margin-bottom:8px;}
-  .card p{color:var(--muted); font-size:15px;}
-  .split{display:grid; grid-template-columns:1fr 1fr; gap:22px; align-items:stretch;}
-  @media(max-width:760px){.split{grid-template-columns:1fr;}}
-  .profile{background:var(--green-dark); color:#eaf5ef; border-radius:16px; padding:28px;}
-  .profile .tag{display:inline-block; background:var(--amber); color:#3a2a05; font-size:12px; font-weight:700; padding:4px 10px; border-radius:999px; letter-spacing:.06em;}
-  .profile h3{font-size:22px; margin:14px 0 4px; color:#fff;}
-  .profile .stats{display:flex; gap:28px; margin:20px 0; flex-wrap:wrap;}
-  .profile .stats b{display:block; font-size:26px; color:#fff;}
-  .profile .stats span{font-size:13px; color:#bcd8cc;}
-  .profile .badges span{display:inline-block; border:1px solid #3f7d64; border-radius:999px; padding:5px 12px; font-size:13px; margin:0 6px 8px 0;}
-  .random{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:28px;}
-  .random h3{font-size:22px; margin-bottom:10px;}
-  .random p{color:var(--muted); margin-bottom:14px;}
-  .random ul{list-style:none;}
-  .random li{padding:8px 0 8px 28px; position:relative; color:var(--muted);}
-  .random li::before{content:"✓"; position:absolute; left:0; color:var(--green); font-weight:800;}
-  .trust{background:#fff; border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
-  .formbox{background:var(--card); border:1px solid var(--line); border-radius:20px; padding:34px; max-width:680px; margin:0 auto;}
-  .formbox h2{text-align:left;}
-  .formbox .lede{text-align:left; margin:0 0 24px;}
-  label{display:block; font-weight:600; font-size:14px; margin:16px 0 6px;}
-  input[type=text],input[type=email],select{width:100%; padding:12px 14px; border:1px solid #c9c2b2; border-radius:10px; font-size:16px; background:#fffdf8;}
-  .row{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
-  @media(max-width:560px){.row{grid-template-columns:1fr;}}
-  .lanes{display:grid; gap:10px; margin-top:6px;}
-  .lane{display:flex; gap:10px; align-items:flex-start; border:1px solid var(--line); border-radius:12px; padding:13px 14px; cursor:pointer; background:#fffdf8;}
-  .lane input{margin-top:3px;}
-  .lane b{display:block; font-size:15px;}
-  .lane small{color:var(--muted);}
-  .checks label{font-weight:500; display:flex; gap:9px; align-items:flex-start; margin:10px 0;}
-  .checks input{margin-top:4px;}
-  .submit{width:100%; margin-top:24px; padding:16px; font-size:17px;}
-  .msg{display:none; border-radius:12px; padding:16px; margin-top:20px; font-size:15px;}
-  .msg.ok{display:block; background:#e7f4ec; border:1px solid #9fd0b4; color:#0a4f3a;}
-  .msg.err{display:block; background:#fdeeee; border:1px solid #e5a3a3; color:#7c1f1f;}
-  details{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px 20px; margin:0 auto 12px; max-width:760px;}
-  summary{font-weight:700; cursor:pointer;}
-  details p{color:var(--muted); margin-top:8px; font-size:15px;}
-  footer{padding:36px 0 48px; text-align:center; color:var(--muted); font-size:13px;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:88px}
+  body{font-family:ui-rounded,"SF Pro Rounded","Segoe UI",system-ui,-apple-system,sans-serif;background:var(--cream);color:var(--ink);line-height:1.55;overflow-x:hidden}
+  a{color:inherit}
+  .wrap{width:min(1120px,calc(100% - 40px));margin:0 auto}
+  .topline{background:var(--green-dark);color:#e9f6ec;text-align:center;padding:8px 16px;font-size:12px;font-weight:650;letter-spacing:.02em}
+  header{position:sticky;top:0;z-index:20;background:rgba(248,246,239,.92);backdrop-filter:blur(14px);border-bottom:1px solid rgba(231,227,216,.8)}
+  .nav{height:70px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:900;letter-spacing:-.04em;font-size:20px}
+  .brand-mark{display:grid;place-items:center;width:35px;height:35px;border-radius:12px;background:var(--lime);font-size:19px;transform:rotate(-5deg)}
+  .navlinks{display:flex;align-items:center;gap:26px;color:var(--muted);font-size:14px;font-weight:650}
+  .navlinks a{text-decoration:none}.navlinks a:hover{color:var(--green)}
+  .pill-link{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;border:0;border-radius:999px;padding:11px 18px;background:var(--green);color:white;font-weight:750;font-size:14px;transition:transform .18s,background .18s}
+  .pill-link:hover,.btn:hover{transform:translateY(-2px);background:var(--green-dark)}
+  .hero{padding:54px 0 70px;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:48px;min-height:540px}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;padding:7px 12px;border-radius:999px;background:#e8f3e9;color:var(--green-dark);font-size:12px;font-weight:800;letter-spacing:.07em;text-transform:uppercase}
+  .eyebrow i{width:8px;height:8px;background:#56aa71;border-radius:50%;box-shadow:0 0 0 4px rgba(86,170,113,.14)}
+  h1{font-size:clamp(42px,6vw,72px);line-height:.99;letter-spacing:-.065em;font-weight:900;margin:22px 0 20px;max-width:680px}
+  h1 .highlight{position:relative;z-index:0;white-space:nowrap}
+  h1 .highlight:after{content:"";position:absolute;z-index:-1;left:-3px;right:-4px;bottom:3px;height:.24em;background:var(--sun);border-radius:999px;transform:rotate(-1.5deg)}
+  .hero-copy{max-width:550px;color:var(--muted);font-size:18px;line-height:1.65}
+  .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:0;border-radius:999px;padding:15px 22px;background:var(--green);color:#fff;text-decoration:none;font-size:15px;font-weight:800;cursor:pointer;transition:transform .18s,background .18s}
+  .btn.secondary{background:var(--paper);border:1px solid var(--line);color:var(--ink)}
+  .btn.secondary:hover{background:white}
+  .tiny-note{font-size:12px;color:var(--muted);margin-top:15px}
+  .hero-art{position:relative;min-height:420px;display:grid;place-items:center}
+  .art-blob{position:absolute;width:min(430px,100%);aspect-ratio:1;border-radius:44% 56% 59% 41% / 49% 45% 55% 51%;background:#e8f0d4;transform:rotate(8deg)}
+  .receipt{position:relative;width:min(330px,80%);padding:23px 24px 21px;background:var(--paper);border-radius:20px;box-shadow:0 23px 55px rgba(26,66,50,.17);transform:rotate(-3deg);border:1px solid rgba(22,80,60,.08)}
+  .receipt:after{content:"";position:absolute;left:0;right:0;bottom:-8px;height:12px;background:radial-gradient(circle at 8px -1px,transparent 9px,var(--paper) 9.5px) 0 0/16px 12px repeat-x}
+  .receipt-top{display:flex;justify-content:space-between;align-items:center;padding-bottom:14px;border-bottom:1px dashed #d9d9ce;color:#738077;font-size:11px;font-weight:800;letter-spacing:.09em;text-transform:uppercase}
+  .receipt-icon{font-size:21px}
+  .receipt h2{font-size:20px;line-height:1.15;letter-spacing:-.04em;margin:16px 0 4px;text-align:left}
+  .receipt-sub{color:var(--muted);font-size:12px}
+  .receipt-amount{display:flex;justify-content:space-between;align-items:baseline;margin:20px 0 14px}
+  .receipt-amount span{font-size:12px;color:var(--muted)}.receipt-amount strong{font-size:31px;letter-spacing:-.06em}
+  .receipt-progress{height:8px;background:#edf0e7;border-radius:10px;overflow:hidden}.receipt-progress span{display:block;width:72%;height:100%;background:var(--green);border-radius:10px}
+  .receipt-foot{display:flex;justify-content:space-between;margin-top:9px;font-size:10px;color:var(--muted)}
+  .paid-stamp{position:absolute;right:-19px;top:38%;padding:8px 13px;border:3px solid var(--coral);border-radius:10px;color:#d95742;font-weight:950;font-size:13px;letter-spacing:.12em;transform:rotate(12deg);background:rgba(255,255,255,.86)}
+  .float{position:absolute;display:grid;place-items:center;box-shadow:var(--shadow);border-radius:18px;font-size:27px;animation:bob 4s ease-in-out infinite}
+  .float.coin{width:64px;height:64px;background:var(--sun);top:12%;right:5%;transform:rotate(10deg)}
+  .float.heart{width:56px;height:56px;background:var(--coral);color:white;bottom:13%;left:4%;animation-delay:-1.5s}
+  .float.star{width:48px;height:48px;background:var(--blue);top:17%;left:7%;font-size:24px;animation-delay:-.8s}
+  .art-caption{position:absolute;bottom:0;right:8%;font-size:12px;color:var(--muted);font-weight:650}
+  @keyframes bob{0%,100%{translate:0 0}50%{translate:0 -9px}}
+  section{padding:70px 0}
+  .section-head{max-width:700px;margin:0 auto 35px;text-align:center}
+  .kicker{color:var(--green);font-size:12px;font-weight:850;letter-spacing:.11em;text-transform:uppercase}
+  h2.section-title{font-size:clamp(30px,4vw,44px);line-height:1.08;letter-spacing:-.05em;margin:9px 0 12px}
+  .section-head p{color:var(--muted);font-size:16px}
+  .how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .step{position:relative;overflow:hidden;background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:25px;min-height:215px;transition:transform .2s,box-shadow .2s}
+  .step:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+  .step .emoji{display:grid;place-items:center;width:48px;height:48px;border-radius:16px;background:var(--mint);font-size:25px;margin-bottom:19px}
+  .step:nth-child(2) .emoji{background:#fff0c5}.step:nth-child(3) .emoji{background:#ffe1d8}
+  .step .step-num{position:absolute;top:22px;right:23px;color:#c6cec7;font-size:13px;font-weight:850}
+  .step h3{font-size:19px;letter-spacing:-.02em;margin-bottom:7px}.step p{font-size:14px;color:var(--muted)}
+  .preview-section{padding-top:25px}
+  .preview-panel{background:var(--green-dark);border-radius:30px;padding:40px;display:grid;grid-template-columns:.9fr 1.1fr;gap:34px;align-items:center;color:white;overflow:hidden;position:relative}
+  .preview-panel:before{content:"";position:absolute;width:330px;height:330px;border-radius:50%;background:rgba(201,237,133,.10);right:-115px;top:-175px}
+  .preview-panel .kicker{color:var(--lime)}
+  .preview-panel h2{font-size:clamp(30px,4vw,42px);line-height:1.05;letter-spacing:-.05em;margin:10px 0 14px}
+  .preview-panel p{color:#d1e5d9;font-size:15px;max-width:400px}
+  .preview-buttons{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
+  .amount-choice{border:1px solid #6b8e7b;background:transparent;color:white;border-radius:999px;padding:9px 13px;font:inherit;font-size:13px;font-weight:750;cursor:pointer;transition:.18s}
+  .amount-choice:hover,.amount-choice[aria-pressed="true"]{background:var(--lime);border-color:var(--lime);color:var(--green-dark)}
+  .preview-example{position:relative;background:#fffefa;color:var(--ink);border-radius:22px;padding:22px;box-shadow:0 20px 45px rgba(0,0,0,.15);transform:rotate(1deg)}
+  .example-label{display:flex;justify-content:space-between;gap:10px;align-items:center;color:var(--muted);font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
+  .example-label span:last-child{background:#eef5dc;border-radius:999px;padding:5px 9px;color:var(--green-dark);letter-spacing:0}
+  .example-bill{display:flex;align-items:center;gap:14px;margin:18px 0}
+  .example-icon{width:48px;height:48px;border-radius:15px;background:#e1effb;display:grid;place-items:center;font-size:24px}
+  .example-bill strong{display:block;font-size:16px}.example-bill small{color:var(--muted);font-size:12px}
+  .example-amount{margin-left:auto;font-weight:900;font-size:19px;letter-spacing:-.04em}
+  .example-bottom{border-top:1px dashed #d8ddd4;padding-top:13px;display:flex;justify-content:space-between;gap:12px;color:var(--muted);font-size:12px}
+  .example-bottom b{color:var(--green)}
+  .note{font-size:11px!important;color:#607168!important;margin-top:12px}
+  .values{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+  .value{padding:23px;border-radius:20px;background:var(--paper);border:1px solid var(--line)}
+  .value .emoji{font-size:24px}.value h3{font-size:17px;margin:10px 0 5px}.value p{color:var(--muted);font-size:14px}
+  .join-section{padding-top:34px}
+  .join-card{max-width:790px;margin:0 auto;background:var(--paper);border:1px solid var(--line);border-radius:28px;padding:clamp(24px,5vw,42px);box-shadow:var(--shadow)}
+  .join-head{display:flex;gap:22px;justify-content:space-between;align-items:flex-start;margin-bottom:23px}
+  .join-head h2{font-size:34px;letter-spacing:-.05em;line-height:1.1;margin-bottom:8px}.join-head p{color:var(--muted);font-size:14px;max-width:500px}
+  .join-spark{font-size:36px;flex:none;transform:rotate(10deg)}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  label.field-label{display:block;font-size:13px;font-weight:800;margin:15px 0 6px}
+  input[type=text],input[type=email],select{width:100%;padding:13px 14px;background:#fff;border:1px solid #d8d9d0;border-radius:12px;color:var(--ink);font:inherit;font-size:15px;outline:none;transition:border .15s,box-shadow .15s}
+  input:focus,select:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(20,102,79,.12)}
+  .lanes{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px}
+  .lane{display:flex;gap:10px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:14px;padding:13px;cursor:pointer;transition:border .16s,background .16s,transform .16s}
+  .lane:hover{transform:translateY(-2px);border-color:#9eb8a6}.lane:has(input:checked){border-color:var(--green);background:#eff7ef;box-shadow:inset 0 0 0 1px var(--green)}
+  .lane input{accent-color:var(--green);margin-top:4px;flex:none}
+  .lane b{display:block;font-size:13px;line-height:1.3}.lane small{display:block;margin-top:4px;color:var(--muted);font-size:11px;line-height:1.4}
+  .checks{margin-top:15px}.checks label{display:flex;gap:9px;align-items:flex-start;font-size:12px;color:var(--muted);cursor:pointer}.checks input{accent-color:var(--green);margin-top:3px}
+  .submit{width:100%;margin-top:22px;font-size:16px}.submit:disabled{opacity:.65;cursor:wait;transform:none}
+  .form-foot{text-align:center;color:var(--muted);font-size:11px;margin-top:12px}
+  .msg{display:none;border-radius:13px;padding:14px;margin-top:17px;font-size:14px}.msg.ok{display:block;background:#e8f5eb;border:1px solid #a7d2b2;color:#145438}.msg.err{display:block;background:#fff0ec;border:1px solid #f2b4a5;color:#8b3525}
+  .faq{max-width:790px;margin:0 auto}.faq details{background:var(--paper);border:1px solid var(--line);border-radius:15px;padding:17px 19px;margin-bottom:10px}
+  .faq summary{list-style:none;cursor:pointer;font-weight:800;display:flex;justify-content:space-between;gap:15px;align-items:center}.faq summary::-webkit-details-marker{display:none}.faq summary:after{content:"+";font-size:21px;color:var(--green);transition:transform .2s}.faq details[open] summary:after{transform:rotate(45deg)}
+  .faq details p{margin-top:10px;color:var(--muted);font-size:14px;max-width:680px}
+  footer{background:#edf0e8;padding:30px 0 35px;color:var(--muted);font-size:12px}
+  .footer-inner{display:flex;justify-content:space-between;gap:22px;align-items:center;flex-wrap:wrap}.footer-brand{font-weight:900;color:var(--ink);font-size:15px}.footer-small{max-width:640px}
+  @media(max-width:850px){.hero{grid-template-columns:1fr;gap:10px;padding:45px 0 50px}.hero-copy{max-width:620px}.hero-art{min-height:380px}.art-caption{bottom:0}.preview-panel{grid-template-columns:1fr;padding:30px}.how-grid{grid-template-columns:1fr 1fr}.how-grid .step:last-child{grid-column:span 2}}
+  @media(max-width:600px){.wrap{width:min(100% - 28px,1120px)}.topline{font-size:11px}.nav{height:62px}.navlinks{display:none}.hero{padding-top:38px}.hero-art{min-height:330px}.receipt{width:270px;padding:20px}.float.coin{right:1%;top:10%}.float.star{left:0}.float.heart{left:0;bottom:10%}.art-caption{right:3%;bottom:-3px}.how-grid,.values{grid-template-columns:1fr}.how-grid .step:last-child{grid-column:auto}.step{min-height:0}.preview-panel{padding:25px 20px;border-radius:24px}.preview-example{padding:17px}.join-head h2{font-size:29px}.join-spark{font-size:29px}.row,.lanes{grid-template-columns:1fr}.join-card{border-radius:22px}.faq summary{font-size:14px}section{padding:55px 0}}
+  @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
+<div class="topline">A little help can change somebody’s whole week. 💛</div>
 <header>
   <div class="wrap nav">
-    <div class="wordmark">The Bill <span>Waitlist</span></div>
-    <a class="cta" href="#join">Join the waitlist</a>
+    <a class="brand" href="#top" aria-label="Good Bill home"><span class="brand-mark" aria-hidden="true">✳</span><span>Good Bill</span></a>
+    <nav class="navlinks" aria-label="Main navigation"><a href="#how">How it works</a><a href="#trust">Trust, first</a><a href="#faq">Questions</a></nav>
+    <a class="pill-link" href="#join">Get early access <span aria-hidden="true">↗</span></a>
   </div>
 </header>
-
-<div class="hero wrap">
-  <h1>A stranger's bill is due Friday. <em>You could clear it today.</em></h1>
-  <p class="sub">Everyday people upload a verified bill. Generous donors pay it directly to the biller, never as cash, and get public credit for every bill they clear. We are building it now. Join the waitlist and be first in.</p>
-  <div class="btns">
-    <a class="btn primary" href="#join" data-lane="help">I need help with a bill</a>
-    <a class="btn ghost" href="#join" data-lane="donor">I want to pay bills</a>
-  </div>
-  <p class="fineprint">No bill uploads yet, and never send account numbers at this stage. The waitlist is just your name, email, and which side you are on.</p>
-</div>
-
-<section class="wrap">
-  <h2>How it will work</h2>
-  <p class="lede">Three steps, built so donors can trust every dollar and people asking for help keep their dignity.</p>
-  <div class="grid3">
-    <div class="card">
-      <div class="num">1</div>
-      <h3>Upload and verify</h3>
-      <p>A person uploads one real bill. We verify it, check it is not already paid or posted twice, and redact private details like account numbers before anyone sees it.</p>
-    </div>
-    <div class="card">
-      <div class="num">2</div>
-      <h3>Pick a bill, or go random</h3>
-      <p>Donors browse by category, amount, or city, or tap Random Bill and get matched with one verified bill under a cap they set. No endless scrolling required.</p>
-    </div>
-    <div class="card">
-      <div class="num">3</div>
-      <h3>Paid direct, proof posted</h3>
-      <p>The money goes straight to the biller, never as cash to the requester. When the biller confirms payment, the bill closes and the donor's profile updates.</p>
-    </div>
-  </div>
-</section>
-
-<section class="wrap">
-  <h2>Giving that gets seen</h2>
-  <p class="lede">Most charity is invisible. Here, helping is the whole point, and donors who want credit for it get a public record of exactly what they did.</p>
-  <div class="split">
-    <div class="profile">
-      <span class="tag">EXAMPLE PROFILE</span>
-      <h3>Maya R. - Dallas, TX</h3>
-      <p>Small business owner. Pays utility and phone bills for neighbors in her zip code.</p>
-      <div class="stats">
-        <div><b>14</b><span>bills cleared</span></div>
-        <div><b>$2,318</b><span>total paid</span></div>
-        <div><b>5 mo</b><span>monthly streak</span></div>
+<main id="top">
+  <section class="wrap hero">
+    <div>
+      <span class="eyebrow"><i aria-hidden="true"></i> A neighbor-helping-neighbor idea</span>
+      <h1>One bill lighter.<br><span class="highlight">One big exhale.</span></h1>
+      <p class="hero-copy">What if helping someone catch up was simple, safe, and direct? We’re exploring a place where verified bills can be paid straight to the biller—and the people who help get a little credit, too.</p>
+      <div class="hero-actions">
+        <a class="btn" href="#join" data-lane="help">I could use a hand <span aria-hidden="true">💛</span></a>
+        <a class="btn secondary" href="#join" data-lane="donor">I’m here to help <span aria-hidden="true">✋</span></a>
       </div>
-      <div class="badges"><span>First 10 Bills</span><span>Utility Hero</span><span>Random Bill Regular</span></div>
-      <p style="font-size:13px; color:#bcd8cc;">Sample profile shown to illustrate the format. Real profiles appear at launch.</p>
+      <p class="tiny-note">Just joining the list—no payment, bill upload, or commitment. We’ll share updates as the idea takes shape.</p>
     </div>
-    <div class="random">
-      <h3>The Random Bill button</h3>
-      <p>For donors who would rather just help than shop for a story:</p>
-      <ul>
-        <li>Set a cap, like any verified bill under $200</li>
-        <li>Tap once and get matched instantly</li>
-        <li>Or set a monthly budget and let bills come to you automatically</li>
-        <li>Every match is verified and paid direct to the biller</li>
-      </ul>
+    <div class="hero-art" aria-label="Illustration of an example bill being paid">
+      <div class="art-blob"></div><div class="float star" aria-hidden="true">✦</div><div class="float coin" aria-hidden="true">🪙</div><div class="float heart" aria-hidden="true">♥</div>
+      <article class="receipt">
+        <div class="receipt-top"><span>A little relief</span><span class="receipt-icon" aria-hidden="true">⚡</span></div>
+        <h2>Electric bill</h2><p class="receipt-sub">An example of what a future post could look like</p>
+        <div class="receipt-amount"><span>Amount due</span><strong>$86</strong></div>
+        <div class="receipt-progress" aria-label="Illustrative example only"><span></span></div>
+        <div class="receipt-foot"><span>Neighbors pitching in</span><span>Example only</span></div>
+        <div class="paid-stamp">PAID DIRECT</div>
+      </article>
+      <p class="art-caption">The plan: help goes to the biller, not as cash.</p>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="trust">
-  <div class="wrap">
-    <h2>Built on trust, on purpose</h2>
-    <p class="lede">Fake giveaways are everywhere online. This only works if it is provably different.</p>
-    <div class="grid3">
-      <div class="card"><h3>Never cash</h3><p>Donations pay the biller directly. Money never passes through the hands of the person asking, which stops most abuse before it starts.</p></div>
-      <div class="card"><h3>Verified bills only</h3><p>Every bill is checked against the biller, screened for duplicates, and stripped of private details before it is shown to donors.</p></div>
-      <div class="card"><h3>Not just billionaires</h3><p>Billionaires are welcome, and so are creators, local businesses, churches, and anyone who can clear one $87 electric bill and change someone's week.</p></div>
+  <section class="wrap" id="how">
+    <div class="section-head"><span class="kicker">Simple by design</span><h2 class="section-title">Good help should feel easy.</h2><p>Here’s the idea we’re working toward: clear steps, real bills, and a little more breathing room.</p></div>
+    <div class="how-grid">
+      <article class="step"><span class="step-num">01</span><div class="emoji" aria-hidden="true">🧾</div><h3>A real bill gets checked</h3><p>With the bill owner’s permission, a bill would be reviewed and private details hidden before it’s shared.</p></article>
+      <article class="step"><span class="step-num">02</span><div class="emoji" aria-hidden="true">🫶</div><h3>Someone chooses to help</h3><p>People could pick a bill that speaks to them—or let a “surprise me” option find one within their budget.</p></article>
+      <article class="step"><span class="step-num">03</span><div class="emoji" aria-hidden="true">✅</div><h3>Help goes straight there</h3><p>The goal is to pay the biller directly, then confirm the bill is handled. No cash handoff, no awkward guessing.</p></article>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="wrap" id="join">
-  <div class="formbox">
-    <h2>Join the waitlist</h2>
-    <p class="lede">Tell us which side you are on. When the doors open, waitlist members go first, donors and bill requests alike.</p>
-    <form id="waitlistForm" novalidate>
-      <div class="row">
-        <div>
-          <label for="firstName">First name</label>
-          <input type="text" id="firstName" name="firstName" autocomplete="given-name" required>
-        </div>
-        <div>
-          <label for="lastName">Last name (optional)</label>
-          <input type="text" id="lastName" name="lastName" autocomplete="family-name">
+  <section class="wrap preview-section" aria-labelledby="preview-title">
+    <div class="preview-panel">
+      <div><span class="kicker">A tiny preview</span><h2 id="preview-title">Your kind of helping.</h2><p>Pick a sample amount to see how a future bill card might feel. This is only an illustration—no live bills or payments yet.</p>
+        <div class="preview-buttons" role="group" aria-label="Choose an illustrative amount">
+          <button class="amount-choice" type="button" data-amount="25" aria-pressed="false">$25</button>
+          <button class="amount-choice" type="button" data-amount="60" aria-pressed="true">$60</button>
+          <button class="amount-choice" type="button" data-amount="100" aria-pressed="false">$100</button>
         </div>
       </div>
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" autocomplete="email" required>
-      <div class="row">
-        <div>
-          <label for="city">City</label>
-          <input type="text" id="city" name="city" autocomplete="address-level2">
+      <div><div class="preview-example" aria-live="polite">
+        <div class="example-label"><span>Sample bill card</span><span>Illustration only</span></div>
+        <div class="example-bill"><div class="example-icon" aria-hidden="true">💧</div><div><strong>Water bill</strong><small>Shared with permission · account details hidden</small></div><span class="example-amount" id="sampleAmount">$60</span></div>
+        <div class="example-bottom"><span id="sampleCaption">A small boost. Real relief.</span><b>Paid direct to biller ✓</b></div>
+      </div><p class="note">Mock example. No donations are being collected and no bill has been submitted.</p></div>
+    </div>
+  </section>
+
+  <section class="wrap" id="trust">
+    <div class="section-head"><span class="kicker">Trust, first</span><h2 class="section-title">Help should feel good on both sides.</h2><p>We’re still shaping the details. These are the promises the idea has to earn before it’s ready.</p></div>
+    <div class="values">
+      <article class="value"><span class="emoji" aria-hidden="true">🔒</span><h3>Privacy matters</h3><p>Any future bill sharing should hide account numbers and personal details, with the person’s permission.</p></article>
+      <article class="value"><span class="emoji" aria-hidden="true">🎯</span><h3>Direct, traceable help</h3><p>The plan is for payments to go to billers, with a clear confirmation when a bill is covered.</p></article>
+      <article class="value"><span class="emoji" aria-hidden="true">🌱</span><h3>Every amount counts</h3><p>It shouldn’t take a huge donation to make a real difference. A small bill can be a big deal to someone.</p></article>
+    </div>
+  </section>
+
+  <section class="wrap join-section" id="join">
+    <div class="join-card">
+      <div class="join-head"><div><span class="kicker">Come help us shape it</span><h2>Get on the early list.</h2><p>Tell us what brings you here. We’ll send occasional updates and invite the waitlist first if we open up.</p></div><span class="join-spark" aria-hidden="true">✳️</span></div>
+      <form id="waitlistForm" novalidate>
+        <div class="row"><div><label class="field-label" for="firstName">First name</label><input type="text" id="firstName" name="firstName" autocomplete="given-name" required></div><div><label class="field-label" for="lastName">Last name <span style="font-weight:500;color:var(--muted)">(optional)</span></label><input type="text" id="lastName" name="lastName" autocomplete="family-name"></div></div>
+        <label class="field-label" for="email">Email</label><input type="email" id="email" name="email" autocomplete="email" required>
+        <div class="row"><div><label class="field-label" for="city">City <span style="font-weight:500;color:var(--muted)">(optional)</span></label><input type="text" id="city" name="city" autocomplete="address-level2"></div><div><label class="field-label" for="state">State <span style="font-weight:500;color:var(--muted)">(optional)</span></label><input type="text" id="state" name="state" autocomplete="address-level1"></div></div>
+        <label class="field-label">What brings you here?</label>
+        <div class="lanes">
+          <label class="lane"><input type="radio" name="lane" value="help"><span><b>I could use help with a bill</b><small>Tell me when it’s possible to submit one.</small></span></label>
+          <label class="lane"><input type="radio" name="lane" value="donor"><span><b>I’d like to help pay bills</b><small>Let me know when verified bills are ready.</small></span></label>
+          <label class="lane"><input type="radio" name="lane" value="partner"><span><b>I’m a business or creator</b><small>I’d like to explore helping my community.</small></span></label>
+          <label class="lane"><input type="radio" name="lane" value="curious"><span><b>I’m just curious</b><small>Keep me in the loop while you build.</small></span></label>
         </div>
-        <div>
-          <label for="state">State</label>
-          <input type="text" id="state" name="state" autocomplete="address-level1">
+        <div id="helpFields" hidden>
+          <label class="field-label" for="billType">What kind of bill would you want to cover?</label><select id="billType" name="billType"><option value="">Choose one (optional)</option><option>Electric / utility</option><option>Rent</option><option>Phone</option><option>Medical</option><option>Water / gas</option><option>Car payment or insurance</option><option>Other</option></select>
+          <label class="field-label" for="amountRange">About how much is it?</label><select id="amountRange" name="amountRange"><option value="">Choose a range (optional)</option><option>Under $100</option><option>$100 to $250</option><option>$250 to $500</option><option>$500 to $1,000</option><option>Over $1,000</option></select>
         </div>
-      </div>
-
-      <label>I am here because</label>
-      <div class="lanes">
-        <label class="lane"><input type="radio" name="lane" value="help"><span><b>I need help with a bill</b><small>I have a bill I cannot cover and want to be first to submit one at launch.</small></span></label>
-        <label class="lane"><input type="radio" name="lane" value="donor"><span><b>I want to pay bills for people</b><small>I want a donor profile and first access when bills go live.</small></span></label>
-        <label class="lane"><input type="radio" name="lane" value="partner"><span><b>I am a business or creator</b><small>I want to fund bills publicly, for my community or my audience.</small></span></label>
-        <label class="lane"><input type="radio" name="lane" value="curious"><span><b>Just curious for now</b><small>Keep me posted as this gets built.</small></span></label>
-      </div>
-
-      <div id="helpFields" style="display:none;">
-        <label for="billType">What kind of bill?</label>
-        <select id="billType" name="billType">
-          <option value="">Choose one</option>
-          <option>Electric / utility</option>
-          <option>Rent</option>
-          <option>Phone</option>
-          <option>Medical</option>
-          <option>Water / gas</option>
-          <option>Car payment or insurance</option>
-          <option>Other</option>
-        </select>
-        <label for="amountRange">About how much is it?</label>
-        <select id="amountRange" name="amountRange">
-          <option value="">Choose a range</option>
-          <option>Under $100</option>
-          <option>$100 to $250</option>
-          <option>$250 to $500</option>
-          <option>$500 to $1,000</option>
-          <option>Over $1,000</option>
-        </select>
-      </div>
-
-      <div id="donorFields" style="display:none;">
-        <label for="budgetRange">What could you see yourself paying?</label>
-        <select id="budgetRange" name="budgetRange">
-          <option value="">Choose a range</option>
-          <option>One bill, under $100</option>
-          <option>One bill, $100 to $250</option>
-          <option>A few bills a month</option>
-          <option>$500+ a month</option>
-          <option>A large one-time pool for my business or audience</option>
-        </select>
-        <div class="checks">
-          <label><input type="checkbox" name="interests" value="random"> I love the Random Bill idea, match me automatically</label>
-          <label><input type="checkbox" name="interests" value="leaderboard"> I want a public profile and leaderboard credit for bills I pay</label>
+        <div id="donorFields" hidden>
+          <label class="field-label" for="budgetRange">What kind of help sounds right?</label><select id="budgetRange" name="budgetRange"><option value="">Choose one (optional)</option><option>One bill, under $100</option><option>One bill, $100 to $250</option><option>A few bills a month</option><option>$500+ a month</option><option>A larger pool for my business or audience</option></select>
+          <div class="checks"><label><input type="checkbox" name="interests" value="random"> The “surprise me” bill idea sounds fun</label><label><input type="checkbox" name="interests" value="leaderboard"> I’d like public credit for bills I help cover</label></div>
         </div>
-      </div>
+        <div class="checks"><label><input type="checkbox" id="consent" required> Email me about the idea, launch, and early access. No spam, and no selling my information.</label></div>
+        <button type="submit" class="btn submit" id="submitBtn">Save me a spot <span aria-hidden="true">→</span></button>
+        <p class="form-foot">No bill uploads. No payment details. Joining is not a promise to donate.</p>
+        <div class="msg" id="formMsg" role="status" aria-live="polite"></div>
+      </form>
+    </div>
+  </section>
 
-      <div class="checks">
-        <label><input type="checkbox" id="consent" required> Email me about the launch and early access. No spam, no selling my information.</label>
-      </div>
-
-      <button type="submit" class="btn primary submit" id="submitBtn">Join the waitlist</button>
-      <div class="msg" id="formMsg" role="status"></div>
-    </form>
-  </div>
-</section>
-
-<section class="wrap">
-  <h2>Questions</h2>
-  <p class="lede">Straight answers, including the parts still being decided.</p>
-  <details>
-    <summary>When does it launch?</summary>
-    <p>There is no date yet. This waitlist is how we measure real interest before building the full app. Waitlist members, on both sides, get invited first.</p>
-  </details>
-  <details>
-    <summary>Do I have to be a billionaire to pay a bill?</summary>
-    <p>No. Billionaires can clear a lot of bills, but the heart of this is anyone with a little extra clearing one real bill for one real person, and getting credit for it if they want it.</p>
-  </details>
-  <details>
-    <summary>What bills will qualify?</summary>
-    <p>The launch plan starts with utilities, rent, phone, and medical bills, because they are the easiest to verify and pay directly. Credit cards and loans are held for later.</p>
-  </details>
-  <details>
-    <summary>Is paying someone's bill tax deductible?</summary>
-    <p>Paying an individual's bill directly is generally a gift, not a deductible charitable donation. The final structure is still being decided, so do not count on a deduction. We will state it plainly before anyone pays a cent.</p>
-  </details>
-  <details>
-    <summary>Should I send you my bill now?</summary>
-    <p>No. Do not send bills, account numbers, or documents at this stage. Join the waitlist and we will tell you exactly when and how verified uploads open.</p>
-  </details>
-</section>
-
-<footer class="wrap">
-  <p>An early concept being tested in public. The final name is still pending trademark review, so this page runs under a working label.</p>
-  <p style="margin-top:8px;">Money at launch will always go directly to billers, never as cash to individuals.</p>
-</footer>
-
+  <section class="wrap" id="faq">
+    <div class="section-head"><span class="kicker">The honest answers</span><h2 class="section-title">A few things you might be wondering.</h2></div>
+    <div class="faq">
+      <details><summary>When will it launch?</summary><p>There isn’t a launch date yet. We’re using this waitlist to see if people want the idea before building the full service. Joining means we can send you updates and early access details if we move forward.</p></details>
+      <details><summary>Can I upload a bill or donate now?</summary><p>No. This is an early concept page. Please don’t send bills, account numbers, payment details, or money. We’ll explain the process if bill submissions or payments open in the future.</p></details>
+      <details><summary>How would a bill get paid?</summary><p>The idea is to verify a bill, protect private details, and send any payment directly to the biller. Those steps still need to be built and tested before anyone can use the service.</p></details>
+      <details><summary>Would a payment be tax deductible?</summary><p>We haven’t established a final legal or tax structure. Don’t assume payments would be tax deductible. We’ll make the terms clear before accepting any payment.</p></details>
+      <details><summary>Do I have to give a lot to help?</summary><p>No. The idea is built around people helping at the level that works for them—even one smaller bill can mean a lot to the person behind it.</p></details>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap footer-inner"><div><div class="footer-brand">Good Bill ✳</div><span>Early idea, being shaped in public.</span></div><p class="footer-small">Working name only; no final brand selected. No bill uploads or payments are available on this page. Any future payment flow will be explained before launch.</p></div></footer>
 <script>
-  var form = document.getElementById('waitlistForm');
-  var msg = document.getElementById('formMsg');
-  var helpFields = document.getElementById('helpFields');
-  var donorFields = document.getElementById('donorFields');
-
+  var form=document.getElementById('waitlistForm');
+  var msg=document.getElementById('formMsg');
+  var helpFields=document.getElementById('helpFields');
+  var donorFields=document.getElementById('donorFields');
   function laneChanged(){
-    var lane = form.querySelector('input[name="lane"]:checked');
-    var v = lane ? lane.value : '';
-    helpFields.style.display = (v === 'help') ? 'block' : 'none';
-    donorFields.style.display = (v === 'donor' || v === 'partner') ? 'block' : 'none';
+    var lane=form.querySelector('input[name="lane"]:checked');
+    var v=lane?lane.value:'';
+    helpFields.hidden=v!=='help';
+    donorFields.hidden=!(v==='donor'||v==='partner');
   }
-  form.querySelectorAll('input[name="lane"]').forEach(function(r){ r.addEventListener('change', laneChanged); });
-
-  document.querySelectorAll('[data-lane]').forEach(function(a){
-    a.addEventListener('click', function(){
-      var want = a.getAttribute('data-lane');
-      var radio = form.querySelector('input[name="lane"][value="' + want + '"]');
-      if(radio){ radio.checked = true; laneChanged(); }
-    });
-  });
-
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    msg.className = 'msg'; msg.textContent = '';
-    var firstName = form.firstName.value.trim();
-    var email = form.email.value.trim();
-    var lane = form.querySelector('input[name="lane"]:checked');
-    if(!firstName || !email || email.indexOf('@') < 0){
-      msg.className = 'msg err'; msg.textContent = 'Please add your first name and a valid email so we can reach you at launch.';
-      return;
-    }
-    if(!lane){
-      msg.className = 'msg err'; msg.textContent = 'Please pick which side you are on, it takes one tap.';
-      return;
-    }
-    if(!document.getElementById('consent').checked){
-      msg.className = 'msg err'; msg.textContent = 'Please check the email consent box so we are allowed to contact you.';
-      return;
-    }
-    var interests = [];
-    form.querySelectorAll('input[name="interests"]:checked').forEach(function(c){ interests.push(c.value); });
-    var payload = {
-      firstName: firstName,
-      lastName: form.lastName.value.trim(),
-      email: email,
-      city: form.city.value.trim(),
-      state: form.state.value.trim(),
-      lane: lane.value,
-      billType: form.billType.value,
-      amountRange: form.amountRange.value,
-      budgetRange: form.budgetRange.value,
-      interests: interests,
-      consent: true,
-      source: 'landing-page'
-    };
-    var btn = document.getElementById('submitBtn');
-    btn.disabled = true; btn.textContent = 'Joining...';
-    fetch('/api/join', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload)})
-      .then(function(r){ return r.json().then(function(j){ return {ok:r.ok, j:j}; }); })
-      .then(function(res){
-        if(res.ok && res.j && res.j.ok){
-          form.reset(); laneChanged();
-          msg.className = 'msg ok';
-          msg.textContent = 'You are on the list. Watch your inbox for launch news and your early access invite.';
-        } else {
-          msg.className = 'msg err';
-          msg.textContent = 'Something went wrong saving your signup. Please try again in a moment.';
-        }
-      })
-      .catch(function(){
-        msg.className = 'msg err';
-        msg.textContent = 'Something went wrong saving your signup. Please try again in a moment.';
-      })
-      .finally(function(){ btn.disabled = false; btn.textContent = 'Join the waitlist'; });
+  form.querySelectorAll('input[name="lane"]').forEach(function(r){r.addEventListener('change',laneChanged)});
+  document.querySelectorAll('[data-lane]').forEach(function(a){a.addEventListener('click',function(){
+    var radio=form.querySelector('input[name="lane"][value="'+a.getAttribute('data-lane')+'"]');
+    if(radio){radio.checked=true;laneChanged()}
+  })});
+  document.querySelectorAll('.amount-choice').forEach(function(button){button.addEventListener('click',function(){
+    document.querySelectorAll('.amount-choice').forEach(function(b){b.setAttribute('aria-pressed','false')});
+    button.setAttribute('aria-pressed','true');
+    var amount=Number(button.getAttribute('data-amount'));
+    document.getElementById('sampleAmount').textContent='$'+amount;
+    document.getElementById('sampleCaption').textContent=amount<50?'A small boost. Real relief.':amount<100?'A little breathing room.':'One bill closer to handled.';
+  })});
+  form.addEventListener('submit',function(e){
+    e.preventDefault();msg.className='msg';msg.textContent='';
+    var firstName=form.firstName.value.trim();var email=form.email.value.trim();
+    var lane=form.querySelector('input[name="lane"]:checked');
+    if(!firstName||!email||email.indexOf('@')<1){msg.className='msg err';msg.textContent='Please add your first name and a valid email so we can send your updates.';return}
+    if(!lane){msg.className='msg err';msg.textContent='Pick the option that fits you best—it only takes a tap.';return}
+    if(!document.getElementById('consent').checked){msg.className='msg err';msg.textContent='Please check the email consent box so we can send you updates.';return}
+    var interests=[];form.querySelectorAll('input[name="interests"]:checked').forEach(function(c){interests.push(c.value)});
+    var payload={firstName:firstName,lastName:form.lastName.value.trim(),email:email,city:form.city.value.trim(),state:form.state.value.trim(),lane:lane.value,billType:form.billType.value,amountRange:form.amountRange.value,budgetRange:form.budgetRange.value,interests:interests,consent:true,source:'landing-page'};
+    var btn=document.getElementById('submitBtn');btn.disabled=true;btn.textContent='Saving your spot…';
+    fetch('/api/join',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+      .then(function(r){return r.json().then(function(j){return{ok:r.ok,j:j}})})
+      .then(function(res){if(res.ok&&res.j&&res.j.ok){form.reset();laneChanged();msg.className='msg ok';msg.textContent='You’re on the list! We’ll send updates to your inbox as this idea takes shape.'}else{msg.className='msg err';msg.textContent='We couldn’t save that just now. Please try again in a moment.'}})
+      .catch(function(){msg.className='msg err';msg.textContent='We couldn’t save that just now. Please try again in a moment.'})
+      .finally(function(){btn.disabled=false;btn.innerHTML='Save me a spot <span aria-hidden="true">→</span>'});
   });
 </script>
 </body>
