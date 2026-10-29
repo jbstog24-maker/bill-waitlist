@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device width, initial scale=1">
 <meta name="theme-color" content="#f8f6ef">
-<title>Good Bill — Make generosity visible</title>
-<meta name="description" content="A giving community concept where people can support upcoming or past-due bills verified before funds are sent to recipients, track total giving, share stories by choice, and connect around their impact.">
+<title>Good Bill Make generosity visible</title>
+<meta name="description" content="A giving community concept where people can support upcoming or past due bills verified before funds are sent to recipients, track total giving, share stories by choice, and connect around their impact.">
 <style>
   :root{
     --ink:#192d27;--muted:#63716b;--green:#14664f;--green-dark:#104d3d;
@@ -174,46 +174,46 @@
   .reward-card p{font-size:12px;color:#d1e5d9;line-height:1.5}
   .campaign-preview{margin-top:14px;padding:20px;background:#fffefa;color:var(--ink);border-radius:18px;position:relative;z-index:1}
   .campaign-preview h3{font-size:17px;letter-spacing:-.03em}
-  .campaign-preview>p{font-size:12px;color:var(--muted);margin:6px 0 14px;max-width:760px}
-  .campaign-options{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
-  .campaign-option{border:1px solid var(--line);border-radius:12px;padding:10px 13px;background:#fff;color:var(--ink);font:inherit;font-size:12px;font-weight:800;cursor:pointer}
-  .campaign-option[aria-pressed="true"]{border-color:var(--green);background:#eff7ef;box-shadow:inset 0 0 0 1px var(--green);color:var(--green-dark)}
-  .campaign-result{border-radius:12px;padding:12px;background:#f3f5eb;color:var(--green-dark);font-size:12px;font-weight:750}
-  .campaign-rules-note{font-size:10px!important;color:var(--muted)!important;margin-top:10px!important}
-  .founding-offer{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;margin-top:16px;padding:17px 18px;background:#d9f0e4;color:var(--ink);border-radius:16px;position:relative;z-index:1}
-  .founding-offer b{display:block;font-size:14px}.founding-offer span{font-size:11px;color:var(--muted)}
-  .founding-offer .pill-link{white-space:nowrap;background:var(--green-dark)}
-  .rewards-note{font-size:10px!important;color:#b9cfc1!important;margin-top:12px;position:relative;z-index:1}
-  .reach-section{padding-top:20px}
-  .reach-panel{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center;background:#e8f1fb;border:1px solid #d5e2f2;border-radius:28px;padding:clamp(24px,4vw,38px)}
-  .reach-copy h2{font-size:clamp(30px,4vw,40px);line-height:1.05;letter-spacing:-.05em;margin:10px 0 12px}
-  .reach-copy p{color:#566779;font-size:15px;max-width:440px}
-  .reach-points{display:grid;gap:9px;margin-top:18px;color:#37586f;font-size:12px;font-weight:750}
-  .reach-points span{display:flex;gap:8px;align-items:center}
-  .request-demo{background:var(--paper);border:1px solid rgba(25,45,39,.1);border-radius:20px;padding:21px;box-shadow:0 17px 42px rgba(36,55,77,.1)}
-  .request-demo-top{display:flex;justify-content:space-between;gap:10px;align-items:center;color:var(--muted);font-size:10px;font-weight:850;text-transform:uppercase;letter-spacing:.06em}
-  .verified-tag{background:#e9f4df;color:var(--green-dark);border-radius:999px;padding:5px 9px;letter-spacing:0}
-  .request-person{display:flex;align-items:center;gap:11px;margin:17px 0 14px}
-  .request-avatar{width:42px;height:42px;display:grid;place-items:center;border-radius:14px;background:#ffe1d8;font-size:20px}
-  .request-person b{display:block;font-size:13px}.request-person small{font-size:10px;color:var(--muted)}
-  .request-summary{display:flex;justify-content:space-between;gap:10px;align-items:center;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:12px 0;font-size:12px}
-  .request-summary b{font-size:14px}.request-due{color:var(--muted);font-size:10px}
-  .request-reach{display:flex;align-items:center;gap:8px;margin:13px 0;color:#566779;font-size:10px}
-  .reach-dots{display:flex;align-items:center}.reach-dots i{width:21px;height:21px;margin-left:-4px;border:2px solid white;border-radius:50%;background:#c9ed85}.reach-dots i:first-child{margin-left:0;background:#ffd86f}.reach-dots i:nth-child(2){background:#ffb09e}.reach-dots i:nth-child(3){background:#c9d9f0}
-  .request-share-row{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}
-  .request-share-row .share-btn{font-size:10px}
-  .request-share-caption{font-size:10px;color:var(--muted);margin-top:10px;line-height:1.45}
-  @media(max-width:850px){.reach-panel{grid-template-columns:1fr}.rewards-grid{grid-template-columns:1fr}}
-  .faq details p{margin-top:10px;color:var(--muted);font-size:14px;max-width:680px}
-  footer{background:#edf0e8;padding:30px 0 35px;color:var(--muted);font-size:12px}
-  .footer-inner{display:flex;justify-content:space-between;gap:22px;align-items:center;flex-wrap:wrap}.footer-brand{font-weight:900;color:var(--ink);font-size:15px}.footer-small{max-width:640px}
-  @media(max-width:850px){.hero{grid-template-columns:1fr;gap:10px;padding:45px 0 50px}.hero-copy{max-width:620px}.hero-art{min-height:380px}.art-caption{bottom:0}.preview-panel{grid-template-columns:1fr;padding:30px}.how-grid{grid-template-columns:1fr 1fr}.how-grid .step:last-child{grid-column:span 2}.impact-grid{grid-template-columns:1fr}.impact-profile{grid-row:auto}.leaderboard-card{grid-column:auto}}
-  @media(max-width:600px){.wrap{width:min(100% - 28px,1120px)}.topline{font-size:11px}.nav{height:62px}.navlinks{display:none}.hero{padding-top:38px}.hero-art{min-height:330px}.receipt{width:270px;padding:20px}.float.coin{right:1%;top:10%}.float.star{left:0}.float.heart{left:0;bottom:10%}.art-caption{right:3%;bottom:-3px}.how-grid,.values{grid-template-columns:1fr}.how-grid .step:last-child{grid-column:auto}.impact-grid{grid-template-columns:1fr}.impact-profile{grid-row:auto}.leaderboard-card{grid-column:auto}.step{min-height:0}.preview-panel{padding:25px 20px;border-radius:24px}.preview-example{padding:17px}.join-head h2{font-size:29px}.join-spark{font-size:29px}.row,.lanes{grid-template-columns:1fr}.join-card{border-radius:22px}.faq summary{font-size:14px}section{padding:55px 0}}
-  @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+  .campaign-preview>p{font size:12px;color:var( muted);margin:6px 0 14px;max width:760px}
+ .campaign options{display:flex;gap:8px;flex wrap:wrap;margin:12px 0}
+ .campaign option{border:1px solid var( line);border radius:12px;padding:10px 13px;background:#fff;color:var( ink);font:inherit;font size:12px;font weight:800;cursor:pointer}
+ .campaign option[aria pressed="true"]{border color:var( green);background:#eff7ef;box shadow:inset 0 0 0 1px var( green);color:var( green dark)}
+ .campaign result{border radius:12px;padding:12px;background:#f3f5eb;color:var( green dark);font size:12px;font weight:750}
+ .campaign rules note{font size:10px!important;color:var( muted)!important;margin top:10px!important}
+ .founding offer{display:flex;align items:center;justify content:space between;gap:18px;flex wrap:wrap;margin top:16px;padding:17px 18px;background:#d9f0e4;color:var( ink);border radius:16px;position:relative;z index:1}
+ .founding offer b{display:block;font size:14px}.founding offer span{font size:11px;color:var( muted)}
+ .founding offer .pill link{white space:nowrap;background:var( green dark)}
+ .rewards note{font size:10px!important;color:#b9cfc1!important;margin top:12px;position:relative;z index:1}
+ .reach section{padding top:20px}
+ .reach panel{display:grid;grid template columns:1fr 1fr;gap:30px;align items:center;background:#e8f1fb;border:1px solid #d5e2f2;border radius:28px;padding:clamp(24px,4vw,38px)}
+ .reach copy h2{font size:clamp(30px,4vw,40px);line height:1.05;letter spacing: .05em;margin:10px 0 12px}
+ .reach copy p{color:#566779;font size:15px;max width:440px}
+ .reach points{display:grid;gap:9px;margin top:18px;color:#37586f;font size:12px;font weight:750}
+ .reach points span{display:flex;gap:8px;align items:center}
+ .request demo{background:var( paper);border:1px solid rgba(25,45,39,.1);border radius:20px;padding:21px;box shadow:0 17px 42px rgba(36,55,77,.1)}
+ .request demo top{display:flex;justify content:space between;gap:10px;align items:center;color:var( muted);font size:10px;font weight:850;text transform:uppercase;letter spacing:.06em}
+ .verified tag{background:#e9f4df;color:var( green dark);border radius:999px;padding:5px 9px;letter spacing:0}
+ .request person{display:flex;align items:center;gap:11px;margin:17px 0 14px}
+ .request avatar{width:42px;height:42px;display:grid;place items:center;border radius:14px;background:#ffe1d8;font size:20px}
+ .request person b{display:block;font size:13px}.request person small{font size:10px;color:var( muted)}
+ .request summary{display:flex;justify content:space between;gap:10px;align items:center;border top:1px solid var( line);border bottom:1px solid var( line);padding:12px 0;font size:12px}
+ .request summary b{font size:14px}.request due{color:var( muted);font size:10px}
+ .request reach{display:flex;align items:center;gap:8px;margin:13px 0;color:#566779;font size:10px}
+ .reach dots{display:flex;align items:center}.reach dots i{width:21px;height:21px;margin left: 4px;border:2px solid white;border radius:50%;background:#c9ed85}.reach dots i:first child{margin left:0;background:#ffd86f}.reach dots i:nth child(2){background:#ffb09e}.reach dots i:nth child(3){background:#c9d9f0}
+ .request share row{display:flex;gap:7px;flex wrap:wrap;margin top:12px}
+ .request share row .share btn{font size:10px}
+ .request share caption{font size:10px;color:var( muted);margin top:10px;line height:1.45}
+ @media(max width:850px){.reach panel{grid template columns:1fr}.rewards grid{grid template columns:1fr}}
+ .faq details p{margin top:10px;color:var( muted);font size:14px;max width:680px}
+ footer{background:#edf0e8;padding:30px 0 35px;color:var( muted);font size:12px}
+ .footer inner{display:flex;justify content:space between;gap:22px;align items:center;flex wrap:wrap}.footer brand{font weight:900;color:var( ink);font size:15px}.footer small{max width:640px}
+ @media(max width:850px){.hero{grid template columns:1fr;gap:10px;padding:45px 0 50px}.hero copy{max width:620px}.hero art{min height:380px}.art caption{bottom:0}.preview panel{grid template columns:1fr;padding:30px}.how grid{grid template columns:1fr 1fr}.how grid .step:last child{grid column:span 2}.impact grid{grid template columns:1fr}.impact profile{grid row:auto}.leaderboard card{grid column:auto}}
+ @media(max width:600px){.wrap{width:min(100% 28px,1120px)}.topline{font size:11px}.nav{height:62px}.navlinks{display:none}.hero{padding top:38px}.hero art{min height:330px}.receipt{width:270px;padding:20px}.float.coin{right:1%;top:10%}.float.star{left:0}.float.heart{left:0;bottom:10%}.art caption{right:3%;bottom: 3px}.how grid,.values{grid template columns:1fr}.how grid .step:last child{grid column:auto}.impact grid{grid template columns:1fr}.impact profile{grid row:auto}.leaderboard card{grid column:auto}.step{min height:0}.preview panel{padding:25px 20px;border radius:24px}.preview example{padding:17px}.join head h2{font size:29px}.join spark{font size:29px}.row,.lanes{grid template columns:1fr}.join card{border radius:22px}.faq summary{font size:14px}section{padding:55px 0}}
+ @media(prefers reduced motion:reduce){*,*:before,*:after{scroll behavior:auto!important;animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
-<div class="topline">Big-hearted giving. Real bills. Impact the whole community can see. ✨</div>
+<div class="topline">Big hearted giving. Real bills. Impact the whole community can see. ✨</div>
 <header>
   <div class="wrap nav">
     <a class="brand" href="#top" aria-label="Good Bill home"><span class="brand-mark" aria-hidden="true">✳</span><span>Good Bill</span></a>
@@ -224,14 +224,14 @@
 <main id="top">
   <section class="wrap hero">
     <div>
-      <span class="eyebrow"><i aria-hidden="true"></i> A neighbor-helping-neighbor idea</span>
+      <span class="eyebrow"><i aria-hidden="true"></i> A neighbor helping neighbor idea</span>
       <h1>Make generosity<br><span class="highlight">impossible to miss.</span></h1>
-      <p class="hero-copy">A place for millionaires, billionaires, and everyday givers to help people with bills coming due or already past due—and show what that generosity adds up to. The vision includes public impact profiles, stories shared by choice, and giving circles that bring people together.</p>
+      <p class="hero-copy">A place for millionaires, billionaires, and everyday givers to help people with bills coming due or already past due and show what that generosity adds up to. The vision includes public impact profiles, stories shared by choice, and giving circles that bring people together.</p>
       <div class="hero-actions">
         <a class="btn" href="#join" data-lane="help">I need help with a bill <span aria-hidden="true">💛</span></a>
         <a class="btn secondary" href="#join" data-lane="donor">I want to give back <span aria-hidden="true">✋</span></a>
       </div>
-      <p class="tiny-note">Just joining the list—no payment, bill upload, or commitment. We’ll share updates as the idea takes shape.</p>
+      <p class="tiny-note">Just joining the list no payment, bill upload, or commitment. We’ll share updates as the idea takes shape.</p>
     </div>
     <div class="hero-art" aria-label="Illustration of a bill being verified before support is sent">
       <div class="art-blob"></div><div class="float star" aria-hidden="true">✦</div><div class="float coin" aria-hidden="true">🪙</div><div class="float heart" aria-hidden="true">♥</div>
@@ -250,7 +250,7 @@
   <section class="wrap" id="how">
     <div class="section-head"><span class="kicker">Big impact, one bill at a time</span><h2 class="section-title">A clear path from giving to impact.</h2><p>Make a real difference, then let people see the good that came from it.</p></div>
     <div class="how-grid">
-      <article class="step"><span class="step-num">01</span><div class="emoji" aria-hidden="true">🧾</div><h3>The bill and due date get checked</h3><p>With the bill owner’s permission, an upcoming or past-due bill would be reviewed and private details hidden before it appears.</p></article>
+      <article class="step"><span class="step-num">01</span><div class="emoji" aria-hidden="true">🧾</div><h3>The bill and due date get checked</h3><p>With the bill owner’s permission, an upcoming or past due bill would be reviewed and private details hidden before it appears.</p></article>
       <article class="step"><span class="step-num">02</span><div class="emoji" aria-hidden="true">🫶</div><h3>A giver chooses to help</h3><p>People could choose a verified bill, join a giving circle, or be matched with one within their budget.</p></article>
       <article class="step"><span class="step-num">03</span><div class="emoji" aria-hidden="true">✅</div><h3>Funds reach the person</h3><p>After verification, the planned flow sends money to the recipient’s verified personal account. The impact record can distinguish funds sent from bills later confirmed paid.</p></article>
     </div>
@@ -277,7 +277,7 @@
         <div class="giver-row"><span class="rank">01</span><span class="giver-avatar peach">A</span><span class="giver-name"><b>Alex M.</b><small>32 bills supported</small></span><b class="giver-total">$8,450</b></div>
         <div class="giver-row"><span class="rank">02</span><span class="giver-avatar blue">K</span><span class="giver-name"><b>Kindred Co.</b><small>24 bills supported</small></span><b class="giver-total">$6,200</b></div>
         <div class="giver-row"><span class="rank">03</span><span class="giver-avatar yellow">S</span><span class="giver-name"><b>Sam T.</b><small>17 bills supported</small></span><b class="giver-total">$3,980</b></div>
-        <p class="mock-note">Mock names and numbers—just an example of the idea.</p>
+        <p class="mock-note">Mock names and numbers just an example of the idea.</p>
       </article>
     </div>
   </section>
@@ -286,17 +286,17 @@
     <div class="rewards-panel">
       <div class="rewards-head">
         <span class="kicker">For people and businesses who give</span>
-        <h2 id="rewards-title">Make generosity visible—and worth coming back for.</h2>
+        <h2 id="rewards-title">Make generosity visible and worth coming back for.</h2>
         <p>Give people with resources a real way to see what their generosity does, bring others along, and earn recognition if they want it.</p>
       </div>
       <div class="rewards-grid">
         <article class="reward-card"><span class="reward-icon" aria-hidden="true">📊</span><h3>Proof of your impact</h3><p>A dashboard for verified funds sent, bills recipients later confirm paid, and the people reached by your giving.</p></article>
-        <article class="reward-card"><span class="reward-icon" aria-hidden="true">🏅</span><h3>Recognition on your terms</h3><p>Opt into a public giver profile, milestone badges, or a featured thank-you—or give quietly with a private profile.</p></article>
+        <article class="reward-card"><span class="reward-icon" aria-hidden="true">🏅</span><h3>Recognition on your terms</h3><p>Opt into a public giver profile, milestone badges, or a featured thank you or give quietly with a private profile.</p></article>
         <article class="reward-card"><span class="reward-icon" aria-hidden="true">🤝</span><h3>Bring your community</h3><p>Businesses and public figures could sponsor a bill category or local campaign, invite employees or followers, and share an impact recap.</p></article>
-        <article class="reward-card"><span class="reward-icon" aria-hidden="true">🎁</span><h3>Turn followers into bill help</h3><p>A creator or business sets a bill-help amount and campaign rules. Followers submit verified bills for a chance to be selected at random; the creator can support one person or split the amount across several.</p></article>
+        <article class="reward-card"><span class="reward-icon" aria-hidden="true">🎁</span><h3>Turn followers into bill help</h3><p>A creator or business sets a bill help amount and campaign rules. Followers submit verified bills for a chance to be selected at random; the creator can support one person or split the amount across several.</p></article>
       </div>
       <div class="campaign-preview" aria-label="Illustrative creator bill campaign">
-        <h3>Example: a creator launches a $600 bill-help campaign</h3>
+        <h3>Example: a creator launches a $600 bill help campaign</h3>
         <p>Followers who submit an eligible, verified bill request could be included in a random selection. The creator sets in advance how many people to help and the amount per selected request.</p>
         <div class="campaign-options" role="group" aria-label="Choose how the sample campaign amount is split">
           <button class="campaign-option" type="button" data-payout-count="1" aria-pressed="true">Help 1 follower</button>
@@ -306,7 +306,7 @@
         <p class="campaign-rules-note">Example only. Before any real campaign, participants would need clear eligibility, entry, selection, payout, and privacy rules. Random prize campaigns require legal review; no live campaigns or payments are offered here.</p>
       </div>
       <div class="founding-offer">
-        <div><b>Founding Giver / Community Partner</b><span>Proposed early-partner perks: custom giving page, campaign tools, and an impact report.</span></div>
+        <div><b>Founding Giver / Community Partner</b><span>Proposed early partner perks: custom giving page, campaign tools, and an impact report.</span></div>
         <a class="pill-link" href="#join" data-lane="partner">Join as a partner ↗</a>
       </div>
       <p class="rewards-note">These are proposed benefits, not live services. Followers choose whom and what to follow; follower counts and campaign reach are never guaranteed. Recognition is optional, and giving more would never move a bill ahead in line. No tax deduction is promised.</p>
@@ -317,8 +317,8 @@
     <div class="gratitude-panel">
       <div class="gratitude-copy">
         <span class="kicker">A little love goes a long way</span>
-        <h2 id="gratitude-title">Let people say thanks—on their terms.</h2>
-        <p>Each business could choose whether its public gratitude feed is on or off. When it’s on, people can share a thank-you for the help they received, with privacy controls and moderation built in.</p>
+        <h2 id="gratitude-title">Let people say thanks on their terms.</h2>
+        <p>Each business could choose whether its public gratitude feed is on or off. When it’s on, people can share a thank you for the help they received, with privacy controls and moderation built in.</p>
         <span class="gratitude-chip">💛 Optional for every business · easy to switch off</span>
       </div>
       <article class="feed-demo" id="gratitudeDemo" aria-label="Illustrative business gratitude feed">
@@ -373,7 +373,7 @@
   </section>
   <section class="wrap preview-section" aria-labelledby="preview-title">
     <div class="preview-panel">
-      <div><span class="kicker">A tiny preview</span><h2 id="preview-title">Your kind of helping.</h2><p>Pick a sample amount to see how a future bill card might feel. This is only an illustration—no live bills or payments yet.</p>
+      <div><span class="kicker">A tiny preview</span><h2 id="preview-title">Your kind of helping.</h2><p>Pick a sample amount to see how a future bill card might feel. This is only an illustration no live bills or payments yet.</p>
         <div class="preview-buttons" role="group" aria-label="Choose an illustrative amount">
           <button class="amount-choice" type="button" data-amount="25" aria-pressed="false">$25</button>
           <button class="amount-choice" type="button" data-amount="60" aria-pressed="true">$60</button>
@@ -420,15 +420,15 @@
           <label class="field-label" for="budgetRange">What kind of giving sounds right?</label><select id="budgetRange" name="budgetRange"><option value="">Choose one (optional)</option><option>One bill, under $100</option><option>One bill, $100 to $250</option><option>A few bills a month</option><option>$500+ a month</option><option>A larger pool for my business or audience</option><option>Join or start a giving circle</option></select>
           <div class="checks"><p style="font-size:12px;font-weight:800;color:var(--ink);margin-bottom:8px">Which features interest you? <span style="font-weight:500;color:var(--muted)">(choose any)</span></p>
             <label><input type="checkbox" name="interests" value="random"> Match me with a verified bill within my budget</label>
-            <label><input type="checkbox" name="interests" value="leaderboard"> A public profile with my bills-cleared and total-given stats</label>
+            <label><input type="checkbox" name="interests" value="leaderboard"> A public profile with my bills cleared and total given stats</label>
             <label><input type="checkbox" name="interests" value="stories"> Recipient stories and updates, shared by choice</label>
             <label><input type="checkbox" name="interests" value="circles"> Giving circles and community campaigns</label>
             <label><input type="checkbox" name="interests" value="sharecard"> Shareable summaries of my confirmed impact</label>
             <label><input type="checkbox" name="interests" value="gratitude"> Optional public gratitude feeds for businesses I support</label>
             <label><input type="checkbox" name="interests" value="request-sharing"> Share tools that help my verified request reach more people</label>
             <label><input type="checkbox" name="interests" value="founding-partner"> Founding giver / business partner benefits and impact reports</label>
-            <label><input type="checkbox" name="interests" value="campaign-following"> Followers and opt-in updates for my giving profile or bill campaigns</label>
-            <label><input type="checkbox" name="interests" value="creator-bill-campaign"> Launch a bill-help campaign with one payout or several random recipient payouts</label>
+            <label><input type="checkbox" name="interests" value="campaign-following"> Followers and opt in updates for my giving profile or bill campaigns</label>
+            <label><input type="checkbox" name="interests" value="creator-bill-campaign"> Launch a bill help campaign with one payout or several random recipient payouts</label>
           </div>
         </div>
         <div class="checks"><label><input type="checkbox" id="consent" required> Email me about the idea, launch, and early access. No spam, and no selling my information.</label></div>
@@ -444,87 +444,87 @@
     <div class="faq">
       <details><summary>When will it launch?</summary><p>There isn’t a launch date yet. We’re using this waitlist to see if people want the idea before building the full service. Joining means we can send you updates and early access details if we move forward.</p></details>
       <details><summary>Can I upload a bill or donate now?</summary><p>No. This is an early concept page. Please don’t send bills, account numbers, payment details, or money. We’ll explain the process if bill submissions or payments open in the future.</p></details>
-      <details><summary>Can I ask for help before a bill is overdue?</summary><p>Yes. The concept includes bills that are coming due as well as past-due bills. A request would show the due date so givers can understand the timing, but joining this waitlist does not guarantee that any bill will be funded before its due date.</p></details>
+      <details><summary>Can I ask for help before a bill is overdue?</summary><p>Yes. The concept includes bills that are coming due as well as past due bills. A request would show the due date so givers can understand the timing, but joining this waitlist does not guarantee that any bill will be funded before its due date.</p></details>
       <details><summary>How would the money reach someone?</summary><p>After a bill is reviewed and the recipient is verified, the concept is to send the approved funds to that person’s verified personal account. It would not have to go to the utility or other biller. A later update could distinguish money sent from a bill the recipient confirms they paid. No payments are available on this page.</p></details>
       <details><summary>Would a payment be tax deductible?</summary><p>We haven’t established a final legal or tax structure. Don’t assume payments would be tax deductible. We’ll make the terms clear before accepting any payment.</p></details>
       <details><summary>Can givers get public recognition?</summary><p>That’s a core part of the idea. Profiles could show funds sent and bills recipients later confirm as paid, with totals tied to verified transactions. Givers could choose a public name or anonymity, share impact summaries, follow one another, and build giving circles.</p></details>
-      <details><summary>How would a creator bill-help campaign work?</summary><p>A creator or business would announce the total amount, how many eligible bills they plan to help, deadlines, and selection method. Followers who submit a bill that passes verification could be included in a random selection. The creator could choose one recipient for the full amount or split it among several, with funds sent to selected recipients’ verified personal accounts. Clear campaign terms and legal review would be required before launch; this site does not run drawings or send payments.</p></details>
+      <details><summary>How would a creator bill help campaign work?</summary><p>A creator or business would announce the total amount, how many eligible bills they plan to help, deadlines, and selection method. Followers who submit a bill that passes verification could be included in a random selection. The creator could choose one recipient for the full amount or split it among several, with funds sent to selected recipients’ verified personal accounts. Clear campaign terms and legal review would be required before launch; this site does not run drawings or send payments.</p></details>
       <details><summary>Can sharing help more people see my request?</summary><p>That’s the concept. People could share a verified request link, helping more givers discover it and the recipient’s public profile. Recipients would choose what personal details to show. More sharing may increase potential visibility, but it cannot guarantee views, donations, or funding by a bill’s due date.</p></details>
-      <details><summary>Can businesses choose whether to show gratitude posts?</summary><p>That’s the idea: each business could turn its public gratitude feed on or off. People could choose to post a thank-you when a business helped them, with moderation and privacy controls. The sample feed on this page is only an illustration; posting is not live.</p></details>
+      <details><summary>Can businesses choose whether to show gratitude posts?</summary><p>That’s the idea: each business could turn its public gratitude feed on or off. People could choose to post a thank you when a business helped them, with moderation and privacy controls. The sample feed on this page is only an illustration; posting is not live.</p></details>
       <details><summary>How will recipient stories be handled?</summary><p>Stories should be shared only when the person chooses to share them. The idea is to celebrate what generosity made possible while keeping people’s privacy and dignity at the center.</p></details>
     </div>
   </section>
 </main>
 <footer><div class="wrap footer-inner"><div><div class="footer-brand">Good Bill ✳</div><span>Early idea, being shaped in public.</span></div><p class="footer-small">Working name only; no final brand selected. No bill uploads or payments are available on this page. Any future payment flow will be explained before launch.</p></div></footer>
 <script>
-  var form=document.getElementById('waitlistForm');
-  var msg=document.getElementById('formMsg');
-  var helpFields=document.getElementById('helpFields');
-  var donorFields=document.getElementById('donorFields');
-  function laneChanged(){
-    var lane=form.querySelector('input[name="lane"]:checked');
-    var v=lane?lane.value:'';
-    helpFields.hidden=v!=='help';
-    donorFields.hidden=!(v==='donor'||v==='partner');
-  }
-  form.querySelectorAll('input[name="lane"]').forEach(function(r){r.addEventListener('change',laneChanged)});
-  document.querySelectorAll('[data-lane]').forEach(function(a){a.addEventListener('click',function(){
-    var radio=form.querySelector('input[name="lane"][value="'+a.getAttribute('data-lane')+'"]');
-    if(radio){radio.checked=true;laneChanged()}
-  })});
-  var sampleFollow=document.getElementById('sampleFollow');
-  sampleFollow.addEventListener('click',function(){
-    var following=sampleFollow.getAttribute('aria-pressed')==='true';
-    sampleFollow.setAttribute('aria-pressed',String(!following));
-    sampleFollow.textContent=following?'＋ Follow':'✓ Following';
-    document.getElementById('followFeedback').textContent=following?'You unfollowed this sample giver.':'Preview: you would get opt-in updates on this giver’s campaigns and impact.';
-  });
-  var requestShareUrl=window.location.origin+window.location.pathname+'#reach-demo';
-  var requestShareText='Help this verified bill request reach more people through Good Bill.';
-  document.getElementById('requestFacebook').href='https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(requestShareUrl);
-  document.getElementById('requestX').href='https://twitter.com/intent/tweet?url='+encodeURIComponent(requestShareUrl)+'&text='+encodeURIComponent(requestShareText);
-  document.getElementById('copyRequestLink').addEventListener('click',function(){
-    var status=document.getElementById('requestShareStatus');
-    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(requestShareUrl).then(function(){status.textContent='Request link copied—help spread the word!'},function(){status.textContent='Copy unavailable. You can copy the page address from your browser.'})}
-    else{status.textContent='You can copy the page address from your browser.'}
-  });
-  var feedShareUrl=window.location.origin+window.location.pathname+'#gratitude';
-  var feedShareText='A little generosity goes a long way. See the Good Bill gratitude feed concept.';
-  document.getElementById('shareFacebook').href='https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(feedShareUrl);
-  document.getElementById('shareX').href='https://twitter.com/intent/tweet?url='+encodeURIComponent(feedShareUrl)+'&text='+encodeURIComponent(feedShareText);
-  document.getElementById('copyFeedLink').addEventListener('click',function(){
-    var status=document.getElementById('shareStatus');
-    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(feedShareUrl).then(function(){status.textContent='Link copied—share the good!'},function(){status.textContent='Copy unavailable. You can copy the page address from your browser.'})}
-    else{status.textContent='You can copy the page address from your browser.'}
-  });
-  var feedToggle=document.getElementById('feedToggle');
-  var feedDemo=document.getElementById('gratitudeDemo');
-  var feedToggleText=document.getElementById('feedToggleText');
-  feedToggle.addEventListener('click',function(){
-    var isOn=feedToggle.getAttribute('aria-pressed')==='true';
-    feedToggle.setAttribute('aria-pressed',String(!isOn));
-    feedToggleText.textContent=isOn?'Feed off':'Feed on';
-    feedDemo.classList.toggle('is-off',isOn);
-  });
-  document.querySelectorAll('.campaign-option').forEach(function(button){button.addEventListener('click',function(){
-    document.querySelectorAll('.campaign-option').forEach(function(b){b.setAttribute('aria-pressed','false')});
-    button.setAttribute('aria-pressed','true');
-    var count=Number(button.getAttribute('data-payout-count'));
-    document.getElementById('campaignResult').textContent=count===1?'One eligible bill request selected at random could receive up to $600 toward the recipient’s verified personal payment account.':'Three eligible bill requests selected at random could each receive up to $200 toward the recipients’ verified personal payment accounts.';
-  })});
-  document.querySelectorAll('.amount-choice').forEach(function(button){button.addEventListener('click',function(){
-    document.querySelectorAll('.amount-choice').forEach(function(b){b.setAttribute('aria-pressed','false')});
-    button.setAttribute('aria-pressed','true');
-    var amount=Number(button.getAttribute('data-amount'));
-    document.getElementById('sampleAmount').textContent='$'+amount;
-    document.getElementById('sampleCaption').textContent=amount<50?'A small boost. Real relief.':amount<100?'A little breathing room.':'One bill closer to handled.';
+ var form=document.getElementById('waitlistForm');
+ var msg=document.getElementById('formMsg');
+ var helpFields=document.getElementById('helpFields');
+ var donorFields=document.getElementById('donorFields');
+ function laneChanged(){
+ var lane=form.querySelector('input[name="lane"]:checked');
+ var v=lane?lane.value:'';
+ helpFields.hidden=v!=='help';
+ donorFields.hidden=!(v==='donor'||v==='partner');
+ }
+ form.querySelectorAll('input[name="lane"]').forEach(function(r){r.addEventListener('change',laneChanged)});
+ document.querySelectorAll('[data lane]').forEach(function(a){a.addEventListener('click',function(){
+ var radio=form.querySelector('input[name="lane"][value="'+a.getAttribute('data lane')+'"]');
+ if(radio){radio.checked=true;laneChanged()}
+ })});
+ var sampleFollow=document.getElementById('sampleFollow');
+ sampleFollow.addEventListener('click',function(){
+ var following=sampleFollow.getAttribute('aria pressed')==='true';
+ sampleFollow.setAttribute('aria pressed',String(!following));
+ sampleFollow.textContent=following?'＋ Follow':'✓ Following';
+ document.getElementById('followFeedback').textContent=following?'You unfollowed this sample giver.':'Preview: you would get opt in updates on this giver’s campaigns and impact.';
+ });
+ var requestShareUrl=window.location.origin+window.location.pathname+'#reach demo';
+ var requestShareText='Help this verified bill request reach more people through Good Bill.';
+ document.getElementById('requestFacebook').href='https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(requestShareUrl);
+ document.getElementById('requestX').href='https://twitter.com/intent/tweet?url='+encodeURIComponent(requestShareUrl)+'&text='+encodeURIComponent(requestShareText);
+ document.getElementById('copyRequestLink').addEventListener('click',function(){
+ var status=document.getElementById('requestShareStatus');
+ if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(requestShareUrl).then(function(){status.textContent='Request link copied. Help spread the word!'},function(){status.textContent='Copy unavailable. You can copy the page address from your browser.'})}
+ else{status.textContent='You can copy the page address from your browser.'}
+ });
+ var feedShareUrl=window.location.origin+window.location.pathname+'#gratitude';
+ var feedShareText='A little generosity goes a long way. See the Good Bill gratitude feed concept.';
+ document.getElementById('shareFacebook').href='https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(feedShareUrl);
+ document.getElementById('shareX').href='https://twitter.com/intent/tweet?url='+encodeURIComponent(feedShareUrl)+'&text='+encodeURIComponent(feedShareText);
+ document.getElementById('copyFeedLink').addEventListener('click',function(){
+ var status=document.getElementById('shareStatus');
+ if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(feedShareUrl).then(function(){status.textContent='Link copied. Share the good!'},function(){status.textContent='Copy unavailable. You can copy the page address from your browser.'})}
+ else{status.textContent='You can copy the page address from your browser.'}
+ });
+ var feedToggle=document.getElementById('feedToggle');
+ var feedDemo=document.getElementById('gratitudeDemo');
+ var feedToggleText=document.getElementById('feedToggleText');
+ feedToggle.addEventListener('click',function(){
+ var isOn=feedToggle.getAttribute('aria pressed')==='true';
+ feedToggle.setAttribute('aria pressed',String(!isOn));
+ feedToggleText.textContent=isOn?'Feed off':'Feed on';
+ feedDemo.classList.toggle('is off',isOn);
+ });
+ document.querySelectorAll('.campaign option').forEach(function(button){button.addEventListener('click',function(){
+ document.querySelectorAll('.campaign option').forEach(function(b){b.setAttribute('aria pressed','false')});
+ button.setAttribute('aria pressed','true');
+ var count=Number(button.getAttribute('data payout count'));
+ document.getElementById('campaignResult').textContent=count===1?'One eligible bill request selected at random could receive up to $600 toward the recipient’s verified personal payment account.':'Three eligible bill requests selected at random could each receive up to $200 toward the recipients’ verified personal payment accounts.';
+ })});
+ document.querySelectorAll('.amount choice').forEach(function(button){button.addEventListener('click',function(){
+ document.querySelectorAll('.amount choice').forEach(function(b){b.setAttribute('aria pressed','false')});
+ button.setAttribute('aria pressed','true');
+ var amount=Number(button.getAttribute('data amount'));
+ document.getElementById('sampleAmount').textContent='$'+amount;
+ document.getElementById('sampleCaption').textContent=amount<50?'A small boost. Real relief.':amount<100?'A little breathing room.':'One bill closer to handled.';
   })});
   form.addEventListener('submit',function(e){
     e.preventDefault();msg.className='msg';msg.textContent='';
     var firstName=form.firstName.value.trim();var email=form.email.value.trim();
     var lane=form.querySelector('input[name="lane"]:checked');
     if(!firstName||!email||email.indexOf('@')<1){msg.className='msg err';msg.textContent='Please add your first name and a valid email so we can send your updates.';return}
-    if(!lane){msg.className='msg err';msg.textContent='Pick the option that fits you best—it only takes a tap.';return}
+    if(!lane){msg.className='msg err';msg.textContent='Pick the option that fits you best. It only takes a tap.';return}
     if(!document.getElementById('consent').checked){msg.className='msg err';msg.textContent='Please check the email consent box so we can send you updates.';return}
     var interests=[];form.querySelectorAll('input[name="interests"]:checked').forEach(function(c){interests.push(c.value)});
     var payload={firstName:firstName,lastName:form.lastName.value.trim(),email:email,city:form.city.value.trim(),state:form.state.value.trim(),lane:lane.value,billType:form.billType.value,amountRange:form.amountRange.value,budgetRange:form.budgetRange.value,interests:interests,consent:true,source:'landing-page'};
@@ -534,7 +534,7 @@
       .then(function(res){if(res.ok&&res.j&&res.j.ok){form.reset();laneChanged();msg.className='msg ok';msg.textContent='You’re on the list! We’ll send updates to your inbox as this idea takes shape.'}else{msg.className='msg err';msg.textContent='We couldn’t save that just now. Please try again in a moment.'}})
       .catch(function(){msg.className='msg err';msg.textContent='We couldn’t save that just now. Please try again in a moment.'})
       .finally(function(){btn.disabled=false;btn.innerHTML='Save me a spot <span aria-hidden="true">→</span>'});
-  });
+ });
 </script>
 </body>
 </html>
