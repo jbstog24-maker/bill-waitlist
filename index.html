@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#f8f6ef">
-<title>Good Bill — A little help goes a long way</title>
-<meta name="description" content="A neighbor-helping-neighbor idea: verified bills, paid directly to the biller. Join the early list to get updates and first access.">
+<title>Good Bill — Make generosity visible</title>
+<meta name="description" content="A giving community concept where people can pay bills directly, track total giving, share recipient stories with permission, and connect around their impact. Join the early list.">
 <style>
   :root{
     --ink:#192d27;--muted:#63716b;--green:#14664f;--green-dark:#104d3d;
@@ -92,6 +92,27 @@
   .values{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
   .value{padding:23px;border-radius:20px;background:var(--paper);border:1px solid var(--line)}
   .value .emoji{font-size:24px}.value h3{font-size:17px;margin:10px 0 5px}.value p{color:var(--muted);font-size:14px}
+  .impact-grid{display:grid;grid-template-columns:1.03fr .97fr;gap:15px}
+  .impact-profile,.community-card,.leaderboard-card{border-radius:22px;padding:23px;background:var(--paper);border:1px solid var(--line)}
+  .impact-profile{grid-row:span 2;background:#e9f2dc;border-color:#dce8cc}
+  .profile-top,.community-head,.leaderboard-head{display:flex;align-items:center;gap:12px}
+  .avatar{width:49px;height:49px;display:grid;place-items:center;border-radius:17px;background:var(--sun);font-size:21px;font-weight:900;color:var(--green-dark)}
+  .profile-label{font-size:10px;font-weight:850;color:var(--green);letter-spacing:.09em;text-transform:uppercase}
+  .profile-top h3,.community-head h3,.leaderboard-head h3{font-size:18px;letter-spacing:-.03em;margin:2px 0}
+  .profile-top p{color:var(--muted);font-size:12px}
+  .sparkle{color:#d09400}
+  .follow-pill{margin-left:auto;border-radius:999px;background:white;padding:7px 11px;color:var(--green);font-size:11px;font-weight:800;white-space:nowrap}
+  .impact-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:27px 0 22px}
+  .impact-stats div{background:rgba(255,255,255,.7);border-radius:14px;padding:13px 11px}
+  .impact-stats b{display:block;font-size:25px;letter-spacing:-.06em}.impact-stats span{font-size:10px;color:var(--muted);font-weight:700}
+  .profile-bottom{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;color:var(--green-dark);font-size:11px;font-weight:750;border-top:1px solid rgba(25,45,39,.12);padding-top:14px}
+  .community-icon,.leaderboard-icon{margin-left:auto;font-size:25px}
+  .community-card>p{font-size:13px;color:var(--muted);margin:9px 0 13px}
+  .story-preview{display:flex;align-items:center;gap:10px;padding:11px 0;border-top:1px solid var(--line)}
+  .story-icon{width:34px;height:34px;border-radius:11px;background:#fff0c5;display:grid;place-items:center;flex:none}.story-preview div{flex:1}.story-preview b{display:block;font-size:12px}.story-preview small{display:block;color:var(--muted);font-size:10px;line-height:1.35;margin-top:2px}.story-preview>span:last-child{color:var(--green);font-weight:900}
+  .leaderboard-card{grid-column:2}
+  .giver-row{display:flex;align-items:center;gap:9px;padding:11px 0;border-top:1px solid var(--line)}
+  .rank{font-size:11px;color:#9aa69f;font-weight:850;width:17px}.giver-avatar{width:31px;height:31px;border-radius:11px;display:grid;place-items:center;font-size:12px;font-weight:900}.peach{background:#ffe1d8}.blue{background:#dce9fb}.yellow{background:#fff0c5}.giver-name{flex:1}.giver-name b{font-size:11px;display:block}.giver-name small{display:block;font-size:9px;color:var(--muted)}.giver-total{font-size:12px;color:var(--green-dark)}.mock-note{font-size:9px;color:var(--muted);text-align:right;margin-top:3px}
   .join-section{padding-top:34px}
   .join-card{max-width:790px;margin:0 auto;background:var(--paper);border:1px solid var(--line);border-radius:28px;padding:clamp(24px,5vw,42px);box-shadow:var(--shadow)}
   .join-head{display:flex;gap:22px;justify-content:space-between;align-items:flex-start;margin-bottom:23px}
@@ -115,17 +136,17 @@
   .faq details p{margin-top:10px;color:var(--muted);font-size:14px;max-width:680px}
   footer{background:#edf0e8;padding:30px 0 35px;color:var(--muted);font-size:12px}
   .footer-inner{display:flex;justify-content:space-between;gap:22px;align-items:center;flex-wrap:wrap}.footer-brand{font-weight:900;color:var(--ink);font-size:15px}.footer-small{max-width:640px}
-  @media(max-width:850px){.hero{grid-template-columns:1fr;gap:10px;padding:45px 0 50px}.hero-copy{max-width:620px}.hero-art{min-height:380px}.art-caption{bottom:0}.preview-panel{grid-template-columns:1fr;padding:30px}.how-grid{grid-template-columns:1fr 1fr}.how-grid .step:last-child{grid-column:span 2}}
-  @media(max-width:600px){.wrap{width:min(100% - 28px,1120px)}.topline{font-size:11px}.nav{height:62px}.navlinks{display:none}.hero{padding-top:38px}.hero-art{min-height:330px}.receipt{width:270px;padding:20px}.float.coin{right:1%;top:10%}.float.star{left:0}.float.heart{left:0;bottom:10%}.art-caption{right:3%;bottom:-3px}.how-grid,.values{grid-template-columns:1fr}.how-grid .step:last-child{grid-column:auto}.step{min-height:0}.preview-panel{padding:25px 20px;border-radius:24px}.preview-example{padding:17px}.join-head h2{font-size:29px}.join-spark{font-size:29px}.row,.lanes{grid-template-columns:1fr}.join-card{border-radius:22px}.faq summary{font-size:14px}section{padding:55px 0}}
+  @media(max-width:850px){.hero{grid-template-columns:1fr;gap:10px;padding:45px 0 50px}.hero-copy{max-width:620px}.hero-art{min-height:380px}.art-caption{bottom:0}.preview-panel{grid-template-columns:1fr;padding:30px}.how-grid{grid-template-columns:1fr 1fr}.how-grid .step:last-child{grid-column:span 2}.impact-grid{grid-template-columns:1fr}.impact-profile{grid-row:auto}.leaderboard-card{grid-column:auto}}
+  @media(max-width:600px){.wrap{width:min(100% - 28px,1120px)}.topline{font-size:11px}.nav{height:62px}.navlinks{display:none}.hero{padding-top:38px}.hero-art{min-height:330px}.receipt{width:270px;padding:20px}.float.coin{right:1%;top:10%}.float.star{left:0}.float.heart{left:0;bottom:10%}.art-caption{right:3%;bottom:-3px}.how-grid,.values{grid-template-columns:1fr}.how-grid .step:last-child{grid-column:auto}.impact-grid{grid-template-columns:1fr}.impact-profile{grid-row:auto}.leaderboard-card{grid-column:auto}.step{min-height:0}.preview-panel{padding:25px 20px;border-radius:24px}.preview-example{padding:17px}.join-head h2{font-size:29px}.join-spark{font-size:29px}.row,.lanes{grid-template-columns:1fr}.join-card{border-radius:22px}.faq summary{font-size:14px}section{padding:55px 0}}
   @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
-<div class="topline">A little help can change somebody’s whole week. 💛</div>
+<div class="topline">Big-hearted giving. Real bills. Impact the whole community can see. ✨</div>
 <header>
   <div class="wrap nav">
     <a class="brand" href="#top" aria-label="Good Bill home"><span class="brand-mark" aria-hidden="true">✳</span><span>Good Bill</span></a>
-    <nav class="navlinks" aria-label="Main navigation"><a href="#how">How it works</a><a href="#trust">Trust, first</a><a href="#faq">Questions</a></nav>
+    <nav class="navlinks" aria-label="Main navigation"><a href="#how">How it works</a><a href="#impact">Public impact</a><a href="#trust">Trust, first</a><a href="#faq">Questions</a></nav>
     <a class="pill-link" href="#join">Get early access <span aria-hidden="true">↗</span></a>
   </div>
 </header>
@@ -133,34 +154,58 @@
   <section class="wrap hero">
     <div>
       <span class="eyebrow"><i aria-hidden="true"></i> A neighbor-helping-neighbor idea</span>
-      <h1>One bill lighter.<br><span class="highlight">One big exhale.</span></h1>
-      <p class="hero-copy">What if helping someone catch up was simple, safe, and direct? We’re exploring a place where verified bills can be paid straight to the biller—and the people who help get a little credit, too.</p>
+      <h1>Make generosity<br><span class="highlight">impossible to miss.</span></h1>
+      <p class="hero-copy">A place for millionaires, billionaires, and everyday givers to pay real bills directly—and show what that generosity adds up to. Every bill cleared, every dollar given, every story shared (with permission) becomes part of a public impact profile.</p>
       <div class="hero-actions">
-        <a class="btn" href="#join" data-lane="help">I could use a hand <span aria-hidden="true">💛</span></a>
-        <a class="btn secondary" href="#join" data-lane="donor">I’m here to help <span aria-hidden="true">✋</span></a>
+        <a class="btn" href="#join" data-lane="help">I need help with a bill <span aria-hidden="true">💛</span></a>
+        <a class="btn secondary" href="#join" data-lane="donor">I want to give back <span aria-hidden="true">✋</span></a>
       </div>
       <p class="tiny-note">Just joining the list—no payment, bill upload, or commitment. We’ll share updates as the idea takes shape.</p>
     </div>
     <div class="hero-art" aria-label="Illustration of an example bill being paid">
       <div class="art-blob"></div><div class="float star" aria-hidden="true">✦</div><div class="float coin" aria-hidden="true">🪙</div><div class="float heart" aria-hidden="true">♥</div>
       <article class="receipt">
-        <div class="receipt-top"><span>A little relief</span><span class="receipt-icon" aria-hidden="true">⚡</span></div>
+        <div class="receipt-top"><span>Giving in action</span><span class="receipt-icon" aria-hidden="true">⚡</span></div>
         <h2>Electric bill</h2><p class="receipt-sub">An example of what a future post could look like</p>
         <div class="receipt-amount"><span>Amount due</span><strong>$86</strong></div>
         <div class="receipt-progress" aria-label="Illustrative example only"><span></span></div>
         <div class="receipt-foot"><span>Neighbors pitching in</span><span>Example only</span></div>
         <div class="paid-stamp">PAID DIRECT</div>
       </article>
-      <p class="art-caption">The plan: help goes to the biller, not as cash.</p>
+      <p class="art-caption">A sample bill card: verified, then paid directly.</p>
     </div>
   </section>
 
   <section class="wrap" id="how">
-    <div class="section-head"><span class="kicker">Simple by design</span><h2 class="section-title">Good help should feel easy.</h2><p>Here’s the idea we’re working toward: clear steps, real bills, and a little more breathing room.</p></div>
+    <div class="section-head"><span class="kicker">Big impact, one bill at a time</span><h2 class="section-title">A clear path from giving to impact.</h2><p>Make a real difference, then let people see the good that came from it.</p></div>
     <div class="how-grid">
-      <article class="step"><span class="step-num">01</span><div class="emoji" aria-hidden="true">🧾</div><h3>A real bill gets checked</h3><p>With the bill owner’s permission, a bill would be reviewed and private details hidden before it’s shared.</p></article>
-      <article class="step"><span class="step-num">02</span><div class="emoji" aria-hidden="true">🫶</div><h3>Someone chooses to help</h3><p>People could pick a bill that speaks to them—or let a “surprise me” option find one within their budget.</p></article>
-      <article class="step"><span class="step-num">03</span><div class="emoji" aria-hidden="true">✅</div><h3>Help goes straight there</h3><p>The goal is to pay the biller directly, then confirm the bill is handled. No cash handoff, no awkward guessing.</p></article>
+      <article class="step"><span class="step-num">01</span><div class="emoji" aria-hidden="true">🧾</div><h3>A real bill gets verified</h3><p>With the bill owner’s permission, a bill would be checked and private details hidden before it appears.</p></article>
+      <article class="step"><span class="step-num">02</span><div class="emoji" aria-hidden="true">🫶</div><h3>A giver pays it directly</h3><p>People could choose a bill, join a giving circle, or let a “surprise me” option find one within their budget.</p></article>
+      <article class="step"><span class="step-num">03</span><div class="emoji" aria-hidden="true">✅</div><h3>The impact gets counted</h3><p>Once payment is confirmed, the giver’s profile can show bills cleared, dollars given, and stories shared—with permission.</p></article>
+    </div>
+  </section>
+
+  <section class="wrap" id="impact">
+    <div class="section-head"><span class="kicker">Give back. Get recognized.</span><h2 class="section-title">Let generosity leave a trail.</h2><p>We want giving to be more than a quiet transaction. Profiles can make each person’s contribution visible and give the community a way to celebrate, connect, and inspire more good.</p></div>
+    <div class="impact-grid">
+      <article class="impact-profile">
+        <div class="profile-top"><div class="avatar">J</div><div><span class="profile-label">Sample giver profile</span><h3>Jordan R. <span class="sparkle">✦</span></h3><p>Giving where it matters, one bill at a time.</p></div><span class="follow-pill">＋ Follow</span></div>
+        <div class="impact-stats"><div><b>18</b><span>bills cleared</span></div><div><b>$4,260</b><span>given directly</span></div><div><b>12</b><span>stories supported</span></div></div>
+        <div class="profile-bottom"><span>🏅 Community builder</span><span>💚 84 people inspired</span></div>
+      </article>
+      <article class="community-card">
+        <div class="community-head"><div><span class="profile-label">The giving community</span><h3>Good travels.</h3></div><span class="community-icon">💬</span></div>
+        <p>Connect around the impact: celebrate a bill cleared, share a recipient story with permission, or inspire someone else to join in.</p>
+        <div class="story-preview"><span class="story-icon">📖</span><div><b>Stories, with dignity</b><small>People can choose to share what a paid bill meant to them.</small></div><span aria-hidden="true">→</span></div>
+        <div class="story-preview"><span class="story-icon">🤝</span><div><b>Give together</b><small>Givers can connect, compare impact, and build giving circles.</small></div><span aria-hidden="true">→</span></div>
+      </article>
+      <article class="leaderboard-card">
+        <div class="leaderboard-head"><div><span class="profile-label">Illustrative leaderboard</span><h3>Givers who show up</h3></div><span class="leaderboard-icon">🏆</span></div>
+        <div class="giver-row"><span class="rank">01</span><span class="giver-avatar peach">A</span><span class="giver-name"><b>Alex M.</b><small>32 bills cleared</small></span><b class="giver-total">$8,450</b></div>
+        <div class="giver-row"><span class="rank">02</span><span class="giver-avatar blue">K</span><span class="giver-name"><b>Kindred Co.</b><small>24 bills cleared</small></span><b class="giver-total">$6,200</b></div>
+        <div class="giver-row"><span class="rank">03</span><span class="giver-avatar yellow">S</span><span class="giver-name"><b>Sam T.</b><small>17 bills cleared</small></span><b class="giver-total">$3,980</b></div>
+        <p class="mock-note">Mock names and numbers—just an example of the idea.</p>
+      </article>
     </div>
   </section>
 
@@ -182,17 +227,17 @@
   </section>
 
   <section class="wrap" id="trust">
-    <div class="section-head"><span class="kicker">Trust, first</span><h2 class="section-title">Help should feel good on both sides.</h2><p>We’re still shaping the details. These are the promises the idea has to earn before it’s ready.</p></div>
+    <div class="section-head"><span class="kicker">Trust, first</span><h2 class="section-title">Recognition, rooted in real impact.</h2><p>Public credit should reflect actual bills paid, protect recipients, and invite more generosity—not turn people’s hardship into a spectacle.</p></div>
     <div class="values">
       <article class="value"><span class="emoji" aria-hidden="true">🔒</span><h3>Privacy matters</h3><p>Any future bill sharing should hide account numbers and personal details, with the person’s permission.</p></article>
-      <article class="value"><span class="emoji" aria-hidden="true">🎯</span><h3>Direct, traceable help</h3><p>The plan is for payments to go to billers, with a clear confirmation when a bill is covered.</p></article>
-      <article class="value"><span class="emoji" aria-hidden="true">🌱</span><h3>Every amount counts</h3><p>It shouldn’t take a huge donation to make a real difference. A small bill can be a big deal to someone.</p></article>
+      <article class="value"><span class="emoji" aria-hidden="true">📊</span><h3>Giving that adds up</h3><p>Profiles can total bills covered and dollars paid, with each figure tied to confirmed help.</p></article>
+      <article class="value"><span class="emoji" aria-hidden="true">📣</span><h3>Stories by choice</h3><p>Recipient stories should only be public when people choose to share them, with privacy and dignity protected.</p></article>
     </div>
   </section>
 
   <section class="wrap join-section" id="join">
     <div class="join-card">
-      <div class="join-head"><div><span class="kicker">Come help us shape it</span><h2>Get on the early list.</h2><p>Tell us what brings you here. We’ll send occasional updates and invite the waitlist first if we open up.</p></div><span class="join-spark" aria-hidden="true">✳️</span></div>
+      <div class="join-head"><div><span class="kicker">Come help us shape it</span><h2>Get on the early list.</h2><p>Tell us what brings you here. We’ll send occasional updates and invite the waitlist first if we open up. Givers, bill owners, businesses, and creators are all welcome.</p></div><span class="join-spark" aria-hidden="true">✳️</span></div>
       <form id="waitlistForm" novalidate>
         <div class="row"><div><label class="field-label" for="firstName">First name</label><input type="text" id="firstName" name="firstName" autocomplete="given-name" required></div><div><label class="field-label" for="lastName">Last name <span style="font-weight:500;color:var(--muted)">(optional)</span></label><input type="text" id="lastName" name="lastName" autocomplete="family-name"></div></div>
         <label class="field-label" for="email">Email</label><input type="email" id="email" name="email" autocomplete="email" required>
@@ -200,8 +245,8 @@
         <label class="field-label">What brings you here?</label>
         <div class="lanes">
           <label class="lane"><input type="radio" name="lane" value="help"><span><b>I could use help with a bill</b><small>Tell me when it’s possible to submit one.</small></span></label>
-          <label class="lane"><input type="radio" name="lane" value="donor"><span><b>I’d like to help pay bills</b><small>Let me know when verified bills are ready.</small></span></label>
-          <label class="lane"><input type="radio" name="lane" value="partner"><span><b>I’m a business or creator</b><small>I’d like to explore helping my community.</small></span></label>
+          <label class="lane"><input type="radio" name="lane" value="donor"><span><b>I want to give back</b><small>Show me how I can help and track my impact.</small></span></label>
+          <label class="lane"><input type="radio" name="lane" value="partner"><span><b>I represent a business or public figure</b><small>I’d like to give back publicly and inspire others.</small></span></label>
           <label class="lane"><input type="radio" name="lane" value="curious"><span><b>I’m just curious</b><small>Keep me in the loop while you build.</small></span></label>
         </div>
         <div id="helpFields" hidden>
@@ -209,8 +254,8 @@
           <label class="field-label" for="amountRange">About how much is it?</label><select id="amountRange" name="amountRange"><option value="">Choose a range (optional)</option><option>Under $100</option><option>$100 to $250</option><option>$250 to $500</option><option>$500 to $1,000</option><option>Over $1,000</option></select>
         </div>
         <div id="donorFields" hidden>
-          <label class="field-label" for="budgetRange">What kind of help sounds right?</label><select id="budgetRange" name="budgetRange"><option value="">Choose one (optional)</option><option>One bill, under $100</option><option>One bill, $100 to $250</option><option>A few bills a month</option><option>$500+ a month</option><option>A larger pool for my business or audience</option></select>
-          <div class="checks"><label><input type="checkbox" name="interests" value="random"> The “surprise me” bill idea sounds fun</label><label><input type="checkbox" name="interests" value="leaderboard"> I’d like public credit for bills I help cover</label></div>
+          <label class="field-label" for="budgetRange">What kind of giving sounds right?</label><select id="budgetRange" name="budgetRange"><option value="">Choose one (optional)</option><option>One bill, under $100</option><option>One bill, $100 to $250</option><option>A few bills a month</option><option>$500+ a month</option><option>A larger pool for my business or audience</option></select>
+          <div class="checks"><label><input type="checkbox" name="interests" value="random"> I’m interested in giving automatically within my budget</label><label><input type="checkbox" name="interests" value="leaderboard"> I want a public profile showing my total impact</label></div>
         </div>
         <div class="checks"><label><input type="checkbox" id="consent" required> Email me about the idea, launch, and early access. No spam, and no selling my information.</label></div>
         <button type="submit" class="btn submit" id="submitBtn">Save me a spot <span aria-hidden="true">→</span></button>
@@ -227,7 +272,8 @@
       <details><summary>Can I upload a bill or donate now?</summary><p>No. This is an early concept page. Please don’t send bills, account numbers, payment details, or money. We’ll explain the process if bill submissions or payments open in the future.</p></details>
       <details><summary>How would a bill get paid?</summary><p>The idea is to verify a bill, protect private details, and send any payment directly to the biller. Those steps still need to be built and tested before anyone can use the service.</p></details>
       <details><summary>Would a payment be tax deductible?</summary><p>We haven’t established a final legal or tax structure. Don’t assume payments would be tax deductible. We’ll make the terms clear before accepting any payment.</p></details>
-      <details><summary>Do I have to give a lot to help?</summary><p>No. The idea is built around people helping at the level that works for them—even one smaller bill can mean a lot to the person behind it.</p></details>
+      <details><summary>Can givers get public recognition?</summary><p>That’s a core part of the idea. Giver profiles could show how many bills were paid, the total amount given, and stories or community impact—always based on confirmed payments. Givers could also follow one another, share updates, and build giving circles.</p></details>
+      <details><summary>How will recipient stories be handled?</summary><p>Stories should be shared only when the person chooses to share them. The idea is to celebrate what generosity made possible while keeping people’s privacy and dignity at the center.</p></details>
     </div>
   </section>
 </main>
